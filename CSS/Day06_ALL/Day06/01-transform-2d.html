@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#d1,#d2{
+			width:200px;
+			height:200px;
+			position:absolute;
+			top:0;
+			right:0;
+			bottom:0;
+			left:0;
+			margin:auto;
+		}
+		#d1{
+			background:#eee;
+		}
+		#d2{
+			background:#f00;
+			opacity:0.5;
+			/*位移*/
+			/*transform:translate(50px,50px);*/
+
+			/*将原点更改为元素的左上角*/
+			/*transform-origin:top left;*/
+			/*旋转*/
+			/*transform:rotate(0deg);*/
+
+			/*先旋转，再位移*/
+			/*transform:rotate(45deg) translate(50px);*/
+
+			/*先位移，再旋转*/
+			/*transform:translate(50px) rotate(45deg);*/
+
+			/*倾斜*/
+			/*transform:skewX(-30deg);*/
+			transform:skewY(30deg);
+		}
+		#d2:hover{
+			/*缩放*/
+			/*transform:scale(1.1);*/
+		}
+	</style>
+ </head>
+ <body>
+	<div id="d1">参考元素</div>  
+	<div id="d2">转换元素</div>  
+ </body>
+</html>

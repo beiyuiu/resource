@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>伪类选择器</title>
+	<style>
+		a:link{
+			color:black;
+			text-decoration:none;
+		}
+		a:hover{
+			text-decoration:underline;
+		}
+		a:active{
+			color:orange;
+		}
+		a:visited{
+			color:green;
+		}
+
+		#uname{
+			color:gray;
+			font-style:italic;
+		}
+		#uname:active{
+			font-style:normal;
+		}
+		#uname:focus{
+			color:green;
+		}
+	</style>
+ </head>
+ <body>
+  <a href="http://www.csdn.net">CSDN</a>
+	<input type="text" id="uname" value="请输入用户名称">
+ </body>
+</html>

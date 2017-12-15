@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			/**
+			 * 收款程序
+			 */
+			function getMoney(){
+				/*1、声明输入(price,count,money) 
+				    和 输出变量(total,change)*/
+				var price,count,money,total,change;
+				/*2、为输入变量赋值(弹框赋值)price , count*/
+				price = Number(prompt("请输入单价："));
+				count = Number(prompt("请输入数量："));
+				/*3、计算应收金额(total)=price*count*/
+				total = price * count;
+
+				
+				/*判断 total 是否>=500*/
+				if(total >= 500){
+					//享受8折优惠
+					console.log("您消费已超500，享受8折");
+					total *= 0.8;
+				}
+
+
+				console.log("您共消费:"+total+"元");
+				/*4、为输入变量赋值(弹框赋值)money*/
+				money = Number(prompt("掏钱："));
+
+				
+				/*判断 money 与 total 之间的关系*/
+				if(money >= total){
+					//收款金额 大于等于 应收金额时,计算找零并输出
+					/*5、计算找零(change)=money-total*/
+					change = money - total;
+					console.log("共找您："+change+"元");
+				}else{
+					//收款金额小于应收金额时，给出错误提示
+					console.log("付款金额不足... ...");
+				}
+			}
+		</script>
+
+		<button onclick="getMoney()">收款程序</button>
+ </body>
+</html>

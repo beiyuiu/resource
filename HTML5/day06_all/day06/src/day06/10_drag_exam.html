@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Hello, World</title>
+  <style>
+    body{text-align: center}
+  </style>
+</head>
+<body>
+ <h1>拖动练习</h1>
+ <img src="img/1.jpg" id="trash" />
+ <hr/>
+ <div id="box">
+   <img src="img/p3.png" id="p3" />
+   <img src="img/p4.png" id="p4" />
+   <img src="img/p5.png" id="p5" />
+ </div>
+ <script type="text/javascript">
+   //1:创建全局变量保存飞机id值
+   var planeId = null;
+   //2:获取所有拖动源对象，为每个源对象绑定三个事件
+   var list = document.querySelectorAll("#box img");
+   for(var i=0;i<list.length;i++){
+     var plane = list[i];
+     //2.1 为当前飞机绑定三个事件，并且在拖动开始事件中
+     //2.2 获取当前飞机id保存在全局变量中
+     plane.ondragstart = function(){
+        planeId = this.id;
+     }
+     plane.ondrag = function(){}
+     plane.ondragend = function(){}
+   }
+   //3:获取目标对象为其绑定四个事件
+   //4:在目标对象释放事件中获取飞机id值并且从DOM删除
+   trash.ondragenter = function(){}
+   trash.ondragover = function(e){e.preventDefault()}
+   trash.ondragleave = function(){}
+   trash.ondrop = function(){
+     var img = document.getElementById(planeId);
+     box.removeChild(img);
+   }
+</script>
+</body>
+</html>

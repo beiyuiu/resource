@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <button id="btnZan">赞(+0)</button>
+  <button id="btnCai">踩(+0)</button>
+  <script>/*闭包3步*/
+    function factory(word){
+      var n=0;
+      return function(){
+        this.innerHTML=word+"(+"+(++n)+")";
+      }
+    }
+    btnZan.onclick=factory("赞");
+        //.onclick=function(){
+        //  this.innerHTML=word+"(+"+(++n)+")";
+        //}
+    btnCai.onclick=factory("踩");
+        //.onclick=function(){
+        //  this.innerHTML=word+"(+"+(++n)+")";
+        //}
+  </script>
+ </body>
+</html>

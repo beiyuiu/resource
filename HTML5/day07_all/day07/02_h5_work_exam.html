@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input type="number" id="inputNum"/>
+<button id="bt">开始计算</button>
+<hr/>
+<p id="result">
+     运算中.....
+</p>
+<script>
+  //1:获取开始计算的按钮并且绑定点击事件
+  bt.onclick = function() {
+    //2:获取用户输入数值
+    var val = inputNum.value;
+    //3:创建Worker线程运行2.js程序
+    var w = new Worker("2.js");
+    //4:发送用户输入数值
+    w.postMessage(val);
+    //5:接收返回数据
+    w.onmessage = function(e){
+      result.innerHTML = e.data;
+    }
+  }
+</script>
+</body>
+</html>

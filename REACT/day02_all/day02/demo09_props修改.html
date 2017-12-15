@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+
+  var MyTest = React.createClass({
+    handleClick: function () {
+      console.log('btn is clicked');
+      //这样是不允许的，不能修改一个具有只读属性的变量
+      this.props.myTitle = "Welcome";
+    },
+    render: function () {
+      return <div>
+        <h1>{this.props.myTitle}</h1>
+        <button onClick={this.handleClick}>
+            clickMe
+        </button>
+      </div>
+    }
+  })
+
+  ReactDOM.render(
+      <MyTest myTitle="hello"></MyTest>,
+      document.getElementById('example')
+  );
+
+</script>
+
+
+</body>
+</html>

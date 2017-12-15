@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		body{margin:0;}
+		div.main{
+			width:960px;
+			margin:0 auto;
+		}
+		#list{
+			margin:0;
+			padding:0;
+			list-style:none;
+			/*通过overflow将高度撑起来*/
+			overflow:hidden;
+		}
+		#list li{
+			/*左浮动，宽度,内容水平居中对齐*/
+			float:left;
+			width:240px;
+			text-align:center;
+		}
+		#list li h3{
+			/*外边距，字体大小，取消加粗，文本颜色*/
+			margin:0;
+			font-size:14px;
+			font-weight:normal;
+			color:#666;
+		}
+	</style>
+ </head>
+ <body>
+	<div class="main">
+		<!-- 1、上：列表 -->
+		<ul id="list">
+			<li>
+				<img src="img/footer/icon1.png">
+				<h3>品质保障</h3>
+			</li>
+			<li>
+				<img src="img/footer/icon2.png">
+				<h3>私人订制</h3>
+			</li>
+			<li>
+				<img src="img/footer/icon3.png">
+				<h3>学员特供</h3>
+			</li>
+			<li>
+				<img src="img/footer/icon4.png">
+				<h3>专属特权</h3>
+			</li>
+		</ul>
+		<!-- 2、下：LOGO，买家帮助，客户端 -->
+	</div>  
+ </body>
+</html>

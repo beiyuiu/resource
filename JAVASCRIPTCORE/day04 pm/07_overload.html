@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    function pay(                   ){
+     //arguments[         ,         ].length
+              //     0           1
+     if(arguments.length==0)
+      console.log("手机支付...");
+     else if(arguments.length==1)
+      console.log(
+        "现金支付...收款金额:"+arguments[0]);
+     else
+      console.log(
+        "刷卡结账...卡号:"+arguments[0]);
+    }
+
+    pay();//手机支付...
+    pay(100);//现金支付...
+    pay("6553 1234","123456");//刷卡结账...
+
+    //定义函数add: 可计算任意多个数值的和
+    function add(){
+      var sum=0;
+      for(var i=0;i<arguments.length;i++){
+        sum+=arguments[i];
+      }
+      return sum;
+    }
+    console.log(
+      add(1,2,3),//6
+      add(1,2,3,4,5)//15
+    );
+  </script>
+ </body>
+</html>

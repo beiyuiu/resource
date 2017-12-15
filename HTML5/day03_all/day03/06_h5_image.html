@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd;}
+  </style>
+</head>
+<body>
+  <h2>CANVAS绘图坐标轴--路径</h2>
+ <canvas id="c2" width="500" height="400">
+   您的浏览器版本太低不能显示canvas，请更新
+ </canvas>
+ <script>
+   var ctx  = c2.getContext("2d");
+   //1:创建图片对象
+   var p3 = new Image();
+   //2:加载图片
+   p3.src = "img/p3.png";
+   //3:为图片对象绑定事件onload
+   p3.onload = function() {
+     var w = p3.width;
+     var h = p3.height;
+     //4:绘制图片
+     ctx.drawImage(p3,0,0);//17:50--17:55
+     //左上角 右上角 左下角 右下角 居中 200*100
+     ctx.drawImage(p3,500-w,0);
+     ctx.drawImage(p3,0,400-h);
+     ctx.drawImage(p3,500-w,400-h);
+     ctx.drawImage(p3,500/2-w/2,400/2-h/2,200,100);
+   }
+ </script>
+</body>
+</html>

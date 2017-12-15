@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>全局作用域测试</title>
+ </head>
+ <body>
+  <script>
+		var a = 10;
+		var b = 20;
+		c = 30;
+
+		function showMsg(){
+			d = 40;//d为全局变量，因为声明时未加var
+			console.log("在 showMsg 中");
+			console.log(a,b,c,d);
+		}
+
+		function showInfo(){
+			console.log("在 showInfo 中");
+			console.log(a,b,c,d);//打印 a,b,c,d 四个全局变量
+		}
+		/**
+		 * 声明提前
+		 */
+		function show(){
+			//var num;//将 num的声明，预读到此
+			console.log(num);
+			var num = 666;
+			console.log(num);
+		}
+	</script>
+	<button onclick="showMsg()">showMsg()</button>
+	<button onclick="showInfo()">showInfo()</button>
+	<button onclick="show()">show()</button>
+ </body>
+</html>

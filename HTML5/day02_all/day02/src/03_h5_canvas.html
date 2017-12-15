@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400" id="c2"></canvas>
+  <script>
+    //1:获取画笔对象
+    var c2 = document.getElementById("c2");
+    var ctx = c2.getContext("2d");
+    //2:设置描边或填充样式
+    ctx.strokeWidth=1;
+    ctx.strokeStyle="red";
+    //3:描制矩形
+    ctx.strokeRect(0,0,100,100);
+    //实心矩形
+    //4:设置填充矩形样式蓝色
+    ctx.fillStyle="blue";
+    //5:绘制矩形
+    ctx.fillRect(100,100,100,100);
+  </script>
+</body>
+</html>

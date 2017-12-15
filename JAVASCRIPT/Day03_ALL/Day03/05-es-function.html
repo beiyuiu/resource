@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function testEncodeURI(){
+			/*var uri = "https://www.baidu.com/s?wd=canon";
+			console.log(uri);
+			uri = "https://www.baidu.com/s?wd=佳能";
+			console.log(uri);*/
+			
+			//不符合URI规范的字符串
+			var uri = "https://www.baidu.com/s?wd=佳能";
+			//通过 encodeURI() 将 uri 转换成符合规范的字符串
+			var newUri = encodeURI(uri);
+			console.log(uri);
+			console.log(newUri);
+			//再将 newUri 进行解码
+			var afterDecode = decodeURI(newUri);
+			console.log("解码后的:");
+			console.log(afterDecode);
+		}
+	</script>
+	<button onclick="testEncodeURI()">testEncodeURI()</button>
+ </body>
+</html>

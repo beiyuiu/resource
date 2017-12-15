@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+ <h3>SPA</h3>
+<div id="app">
+  <ul>
+    <li v-for="item in lists">{{item.name}}</li>
+  </ul>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script src="js/vue-resource.js"></script>
+<script>
+  var exampleData = {
+    msg: "",
+    lists:[],
+  }
+  new Vue({
+    el:"#app",
+    data:exampleData,
+    mounted:function(){
+      //使用resource插件发送请求并且接收返回数据
+      var url = "http://127.0.0.1/1.php";
+      this.$http.get(url).then(function(response){
+        console.log(response.data);
+        this.lists = response.data
+      });
+    }
+  });
+</script>
+</body>
+</html>

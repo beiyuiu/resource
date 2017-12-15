@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd;}
+  </style>
+</head>
+<body>
+  <h2>CANVAS绘图坐标轴--路径</h2>
+ <canvas id="c2" width="500" height="400">
+   您的浏览器版本太低不能显示canvas，请更新
+ </canvas>
+ <script>
+   //1:获取画布
+   //2:依据画布获取画笔
+   var ctx  = c2.getContext("2d");
+   //3:绘制灰色背景底框
+   ctx.beginPath();
+   ctx.strokeStyle="#aaa";
+   ctx.lineWidth=15;
+   ctx.arc(250,200,100,0,2*Math.PI);
+   ctx.stroke();
+   //4:绘制绿色进度条
+   var start = -90;//开始角度
+   var end = -90;  //结束角度
+   var timer = setInterval(function(){
+     ctx.beginPath();
+     ctx.arc(250,200,100,start*Math.PI/180,end*Math.PI/180);
+     end += 5;
+     ctx.strokeStyle="green";
+     ctx.stroke();
+     //停止定时器
+     if(end>=270){clearInterval(timer);}
+   },100);
+
+ </script>
+</body>
+</html>

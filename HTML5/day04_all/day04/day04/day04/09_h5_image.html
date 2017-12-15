@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{border:1px solid red;}
+  </style>
+</head>
+<body>
+ <h1>h5-canvas 音乐播放器</h1>
+ <canvas id="c2"></canvas>
+ <script>
+   //1:仿网易播放器
+   //2:加载四张图片
+   var progress = 0;
+   var imgBG    = new Image();
+   imgBG.src = "img/bg.jpg";
+   imgBG.onload = function(){
+     progress+=25;
+     if(progress==100) {
+       startDraw();
+     }
+   }
+   var imgDisc  = new Image();
+   imgDisc.src = "img/disc.png";
+   imgDisc.onload = function(){
+     progress+=25;
+     if(progress==100) {
+       startDraw();
+     }
+   }
+   var imgPlay  = new Image();
+   imgPlay.src = "img/play.png";
+   imgPlay.onload = function(){
+     progress+=25;
+     if(progress==100) {
+       startDraw();
+     }
+   }
+   var imgPause = new Image();
+   imgPause.src = "img/pause.png";
+   imgPause.onload = function(){
+     progress+=25;
+     if(progress==100) {
+       startDraw();
+     }
+   }
+   function startDraw(){
+//   3:绘制背景图片(模糊图片)
+     var w = imgBG.width;
+     var h = imgBG.height;
+     c2.width = w;
+     c2.height = h;
+     var ctx = c2.getContext("2d");
+     ctx.drawImage(imgBG,0,0);
+//   4:绘制黑色胶片(路径圆拱形)
+     ctx.beginPath();
+     ctx.arc(w/2,h/2,120,0,2*Math.PI);
+     ctx.fill();
+//   5:绘制封面
+//   6:绘制播放与播停按钮
+   }
+
+ </script>
+</body>
+</html>

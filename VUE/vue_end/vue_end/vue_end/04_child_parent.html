@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+ <h3>子组件-->父组件</h3>
+<div id="app">
+  <parent></parent>
+</div>
+<script src="js/vue.js"></script>
+<script>
+  //1:父组件
+  Vue.component("parent",{
+    data:function(){return {msg:"hello vue"}},
+    template:`
+      <div>
+         <h4>父组件</h4>
+         <child @customEvent="getMsg"></child>
+      </div>
+    `,
+    methods:{
+      getMsg:function(msg){
+         console.log("接收到子组件的数据:"+msg);
+      }
+    }
+  });
+  //2:子组件
+  Vue.component("child",{
+    template:`
+      <div>
+         <h3>子组件</h3>
+         <button @click="setMsg">clickMe</button>
+      </div>
+    `,
+    methods:{
+      setMsg:function(){
+        //触发指定事件.并且传递数据
+        this.$emit("customEvent",19);
+      }
+    }
+  });
+
+  new Vue({
+    el:"#app",
+  });
+</script>
+</body>
+</html>

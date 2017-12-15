@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#d1,#d2,#d3,#d4{
+			width:200px;
+			height:200px;
+			border:2px solid #f00;
+			margin-bottom:10px;
+		}
+		#d1{
+			padding:20px;
+		}
+
+		#d3{
+			padding:18px 37px 16px 8px;
+			/*想让#d3元素，整体占地区域200*200(包含边框和内边距)*/
+			width:151px;
+			height:162px;
+
+		}
+		#d4{
+			padding:18px 37px 16px 8px;
+			/*想让#d4元素，整体占地区域200*200(包含边框和内边距)*/
+			box-sizing:border-box;
+		}
+	</style>
+ </head>
+ <body>
+  <div id="d4">这是div元素(d4)</div>
+	<div id="d3">这是div元素(d3)</div>
+  <div id="d1">这是div元素(d1)</div>
+	<div id="d2">这是div元素(d2)</div>
+ </body>
+</html>

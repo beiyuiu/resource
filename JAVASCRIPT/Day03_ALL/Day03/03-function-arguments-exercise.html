@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		/**
+		 * 声明一个函数 change ，用于判断两个数字的大小和交换
+		 * 参数 a : 表示第一个数
+		 * 参数 b : 表示第二个数
+		 */
+		function change(a,b){
+			a > b && (a^=b,b^=a,a^=b);
+			console.log(a,b);
+		}
+	</script>  
+	<button onclick="change(5,3)">调用change函数</button>
+ </body>
+</html>

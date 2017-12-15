@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd;}
+  </style>
+</head>
+<body>
+ <h1>画二架旋转小飞机</h1>
+ <canvas id="c2" width="500" height="400">
+   您的浏览器版本太低不能显示canvas，请更新
+ </canvas>
+ <script>
+   //平移+旋转+绘制+逆向旋转+逆向平移
+   var ctx  = c2.getContext("2d");
+   var p3 = new Image();
+   p3.src = "img/p3.png";
+   p3.onload = function(){
+     var deg1 = 15;//第一架飞机旋转角度
+     var deg2 = 30;//第二架飞机旋转角度
+     var timer = setInterval(function(){
+       //绘制飞机1--绕自己为中心
+       //平移+旋转+绘制+逆向旋转+逆向平移 14:53--14:55
+       ctx.translate(100,50);
+       ctx.rotate(deg1*Math.PI/180);
+       ctx.drawImage(p3,-100,-50);
+       ctx.rotate(-deg1*Math.PI/180);
+       ctx.translate(-100,-50);
+       deg1+=15;
+       //绘制飞机2--绕自己为中心
+       //平移+旋转+绘制+逆向旋转+逆向平移
+       ctx.translate(100,350);
+       ctx.rotate(deg2*Math.PI/180);
+       ctx.drawImage(p3,-100,-50);
+       ctx.rotate(-deg2*Math.PI/180);
+       ctx.translate(-100,-350);
+       deg2+=30;
+     },50);
+   }
+ </script>
+</body>
+</html>

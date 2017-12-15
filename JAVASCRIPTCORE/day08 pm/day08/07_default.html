@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+//if(!("indexOf" in Array.prototype))
+  Array.prototype.indexOf=function(elem,fromi=0){
+    console.log("调用自定义的indexOf");
+    //fromi=fromi||0;
+    for(var i=fromi;i<this.length;i++)
+      if(this[i]===elem) return i;
+    return -1;
+  }
+  var arr=[1,2,3,2,1];
+  console.log(
+    arr.indexOf(2),//1
+    arr.indexOf(2,2),//3
+    arr.indexOf(2,4),//-1
+    arr.indexOf(4) //-1
+  );
+  function calc(bonus1,bonus2,base=10000){
+    console.log("总工资是:"+(base+bonus1+bonus2));
+  }
+  calc(2000,3000);
+  </script>
+ </body>
+</html>

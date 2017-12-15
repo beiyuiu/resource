@@ -1,0 +1,114 @@
+<!--
+  Generated template for the Demo17FormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>demo17-form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!--在ionic中通过列表来管理表单
+   ionList/ionItem
+  -->
+  <ion-list>
+    <!--复选框-->
+    <ion-item>
+      <ion-label>答案A</ion-label>
+      <ion-checkbox color="danger"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>答案B</ion-label>
+      <ion-checkbox checked="true"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>答案C</ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <!--单选-->
+  <ion-list radio-group 
+  [(ngModel)]="favColor">
+    <ion-item>
+      <ion-label>red</ion-label>
+      <ion-radio value="r"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>green</ion-label>
+      <ion-radio value="g"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>blue</ion-label>
+      <ion-radio value="b"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <!--滑动开关-->
+  <ion-list>
+    <ion-item>
+      <ion-label>开关</ion-label>
+      <ion-toggle 
+      color="danger" checked="true">
+       </ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <!--select 下拉菜单-->
+  <ion-list>
+    <ion-item>
+      <ion-label>城市</ion-label>
+      <ion-select [(ngModel)]="selectCity">
+        <ion-option value="bj">北京</ion-option>
+        <ion-option value="sh">上海</ion-option>
+        <ion-option value="gz">广州</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <!--在ionic中输入框的4种显示方式
+    fixed/floating/stacked/placeholder
+  -->
+  <ion-list>
+    <ion-item>
+      <ion-label>用户名</ion-label>
+      <ion-input type="text" 
+      placeholder="请输入用户名"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>手机号</ion-label>
+      <ion-input type="text"
+      placeholder="请输入手机号"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>地址</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+      type="text" placeholder="请输入留言信息">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!--滑动组件-->
+  <ion-list>
+    <ion-item>
+      <ion-range>
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>100</ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

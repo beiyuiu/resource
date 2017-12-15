@@ -1,0 +1,29 @@
+1、准备工作
+
+启动apache和mysql
+
+2、搭建项目架子
+①解压缩reactNative.zip文件夹到project目录中
+②通过visualStudioCode去打开reactNative文件夹中的myapp文件夹
+③将react_navigation_node_modules.zip拷贝到myapp文件夹中
+④解压缩react_navigation_node_modules.zip到当前文件夹
+⑤在myapp文件夹中创建app目录 ，在app目录下创建components目录，在components目录中，创建project目录
+⑥在project目录中创建login.js main.js productList.js三个文件
+⑦在index.android.js中配置路由词典，让默认访问login.js
+
+3、实现具体页面需求
+
+productList:
+	实现功能如下
+	①加载服务器端的商品列表 
+	②列表项支持点按时，透明度变化效果 
+	③点击列表项，通过弹窗去显示该商品已售数量
+
+实现一个用户列表：
+	①在project 创建userList.js
+	②在userList.js中，创建一个组件UserListComponent
+	③在index.android.js给UserListComponent配置一个路由地址 myUserList
+	④在userList.js中 要求显示一个用户列表
+
+每日一练：
+	完成ReactNative项目中所有的页面！

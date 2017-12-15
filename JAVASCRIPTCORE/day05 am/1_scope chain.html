@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    var a=10;
+    function fun(){
+      var a=100;
+      a++;
+      console.log(a);
+    }
+    fun();//101
+    //局部变量a=101释放！
+    fun();//新建a=100,再++,=101
+    //局部变量a=101又释放！
+    console.log(a);//10
+  </script>
+ </body>
+</html>

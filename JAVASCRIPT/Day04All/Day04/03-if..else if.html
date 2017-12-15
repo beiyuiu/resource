@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		/**
+		 * 从弹框中录入考试成绩（score）
+		 * 如果 成绩 >= 90 , 输出 A
+		 * 否则，如果成绩 >= 80 ,输出 B
+		 * 否则，如果成绩 >= 60 ,输出 C
+		 * 否则，输出 D
+		 */
+		function showScore(){
+			var score = prompt("请输入成绩:");
+			if(score >= 90){
+				console.log("A");
+			}else if(score >= 80){
+				console.log("B");
+			}else if(score >= 60){
+				console.log("C");
+			}else{
+				console.log("D");
+			}
+		}
+	</script>
+	<button onclick="showScore()">成绩判定</button>
+ </body>
+</html>

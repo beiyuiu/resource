@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>学子商城-首页</title>
+	<style>
+		ul{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		img{
+			vertical-align:bottom;
+		}
+		div.main{
+			width:960px;
+			margin:0 auto;
+		}
+
+		#banner img{
+			width:960px;
+		}
+		#banner{
+			width:960px;
+			height:384px;
+			overflow:hidden;
+			/*相对定位：配合 a.ck-slide做绝对定位*/
+			position:relative;
+		}
+		#banner ul.banner-img li{
+			float:left;
+		}
+		
+		/*左右方向按钮的相同的样式*/
+		#banner a.ck-slide{
+			/*绝对定位,宽度，高度，倒角，背景颜色，透明度，上偏移距离*/
+			position:absolute;
+			width:35px;
+			height:70px;
+			border-radius:5px;
+			background:#000;
+			opacity:0.3;
+			top:157px;
+		}
+
+		#banner a.ck-left{
+			/*左偏移距离，背景图*/
+			left:5px;
+			background:#000 url(img/index/arrow-left.png) no-repeat center center;
+		}
+		#banner a.ck-right{
+			/*右偏移距离，背景图*/
+			right:5px;
+			background:#000 url(img/index/arrow-right.png) no-repeat center center;
+		}
+
+		#banner ul.indicators{
+			position:absolute;
+			bottom:30px;
+			left:450px;
+		}
+
+		#banner ul.indicators li{
+			/*宽度，高度，倒角，背景颜色，右外边距，左浮动*/
+			width:10px;
+			height:10px;
+			border-radius:50%;
+			background:#fff;
+			margin-right:5px;
+			float:left;
+			cursor:pointer
+		}
+
+	</style>
+ </head>
+ <body>
+  <div class="main">
+		<!-- 引入 header.html -->
+
+		<!-- 1、banner广告部分 -->
+		<div id="banner">
+			<!-- 1、图片区域 -->
+			<ul class="banner-img">
+				<li>
+					<a href="#">
+						<img src="img/index/banner1.png">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/index/banner2.png">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/index/banner3.png">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/index/banner4.png">
+					</a>
+				</li>
+			</ul>
+			<!-- 2、左右方向按钮 -->
+			<a href="#" class="ck-slide ck-left"></a>
+			<a href="#" class="ck-slide ck-right"></a>
+			<!-- 3、导航小圆点 -->
+			<ul class="indicators">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+
+		<!-- 引入 footer.html-->
+	</div>
+ </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd;}
+  </style>
+</head>
+<body>
+  <h2>CANVAS绘图坐标轴--路径</h2>
+ <canvas id="c2" width="500" height="400">
+   您的浏览器版本太低不能显示canvas，请更新
+ </canvas>
+ <script>
+   //1:获取画布
+   //2:依据画布获取画笔
+   var ctx  = c2.getContext("2d");
+   //3:绘制X轴
+   ctx.beginPath();
+   ctx.moveTo(50,350);
+   ctx.lineTo(450,350);
+   ctx.lineTo(450-25,350-25);
+   ctx.moveTo(450,350);
+   ctx.lineTo(450-25,350+25);
+   ctx.strokeStyle="blue";
+   ctx.stroke();
+   //4:绘制Y轴
+   ctx.beginPath();
+   ctx.moveTo(50,350);
+   ctx.lineTo(50,50);
+   ctx.lineTo(50-25,50+25);
+   ctx.moveTo(50,50);
+   ctx.lineTo(50+25,50+25);
+   ctx.strokeStyle="red";
+   ctx.stroke();
+ </script>
+</body>
+</html>

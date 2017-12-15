@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		/*短路逻辑*/
+		var a = Number(prompt("请输入一个数字："));
+		var b = Number(prompt("请再输入一个数字："));
+		var t; //中间变量，用于辅助 a 和 b 交换的
+		//通过 短路&& 来判断 a 与 b 的大小关系并给出提示
+		a > b && console.log("a 比 b 大");
+		console.log("交换前：");
+		console.log(a,b);
+		//如果 a > b ，则交换两个数字的位置
+		//1、先将 a 赋值给 t
+		//2、再将 b 赋值给 a
+		//3、再将 t 赋值给 b
+		a > b && (t=a,a=b,b=t);
+		console.log("交换后：");
+		console.log(a,b);
+
+	</script>
+ </body>
+</html>

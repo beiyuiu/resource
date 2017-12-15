@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <h1>创建统计图</h1>
+  <canvas width="500" height="400" id="c2"></canvas>
+  <script src="jquery.js"></script>
+  <script>
+    //1:创建画布与画笔对象
+    var c2 = document.getElementById("c2");
+    var ctx = c2.getContext("2d");
+    //2:创建一组变量
+    var w = 500;
+    var h = 400;
+    var pd = 25;//统计图的内容到画布的边界距离
+    //3:绘制边界
+    ctx.strokeRect(pd,pd,w-2*pd,h-2*pd);
+    //4:发送ajax请求获取数据
+    $.ajax({
+      type:"GET",
+      url:"salesdata.php",
+      success:function(data){
+        console.log(data);
+      },
+      error:function(){
+        alert("网络故障请检查!");
+      }
+    });
+  </script>
+</body>
+</html>

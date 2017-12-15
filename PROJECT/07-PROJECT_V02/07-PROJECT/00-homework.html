@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>弹性布局</title>
+	<style>
+		p{
+			margin:0;
+		}
+		div.main{
+			width:960px;
+			margin:0 auto;
+		}
+
+		div.floor-content>div{
+			background:#e8e8e8;
+			margin-bottom:10px;
+			position:relative;
+		}
+
+		div.floor-content>div:nth-child(1){
+			width:610px;
+			height:370px;
+		}
+
+		div.floor-content>div:nth-child(2){
+			width:340px;
+			height:370px;
+		}
+
+		div.floor-content>div:nth-child(3){
+			width:360px;
+			height:230px;
+		}
+
+		div.floor-content>div.product{
+			width:190px;
+			height:230px;
+		}
+
+		div.floor-content{
+			/*变为弹性布局的容器*/
+			display:flex;
+			/*排列不下时允许换行*/
+			flex-wrap:wrap;
+			/*设置项目们的排列方式为两端对齐*/
+			justify-content:space-between;
+		}
+
+		/*具体的显示效果*/
+		div.floor-content p.name{
+			font-size:32px;
+			color:#333;
+		}
+		div.floor-content p.details{
+			font-size:12px;
+			margin-bottom:25px;
+			color:#666;
+		}
+		div.floor-content p.price{
+			font-size:24px;
+			color:#0aa1ed;
+			margin-bottom:12px;
+		}
+		div.floor-content a.view{
+			/*块级元素，宽度，高度，行高，水平居中对齐，倒角，背景颜色，文本颜色，文字大小，取消下划线*/
+			display:block;
+			width:130px;
+			height:40px;
+			line-height:40px;
+			text-align:center;
+			border-radius:2px;
+			background:linear-gradient(to bottom,#27B1F6,#0aa1ed);
+			color:#fff;
+			font-size:16px;
+			text-decoration:none;
+		}
+		div.floor-content div.desc{
+			position:absolute;
+			top:55px;
+			left:60px;
+			width:245px;
+		}
+		/*修改第一块区域中的图像*/
+		div.floor-content>div:nth-child(1) img{
+			position:absolute;
+			right:55px;
+			top:35px;
+		}
+
+
+
+		/*过渡效果*/
+		.floor-content img{
+			/*过渡的效果设置*/
+			transition:all 1s;
+		}
+		.floor-content img:hover{
+			transform:scale(1.1);
+		}
+	</style>
+ </head>
+ <body>
+  <div class="main">
+		<!-- 1、1F ：首页推荐 -->
+		<div class="floor">
+			<!-- 1、上 ：标题 -->
+			<div class="floor-top">
+				<!-- 使用背景图将图片插入进来 -->
+				首页推荐/1F
+			</div>
+			<!-- 2、下 ：内容 -->
+			<div class="floor-content">
+				<div>
+					<!-- 1、显示文字的 div -->
+					<div class="desc">
+						<p class="name">Apple MacBook Air系列</p>
+						<p class="details">酷睿双核i5处理器|256GB SSD|8GB内存|英特尔HD显卡620含共享显卡内存</p>
+						<p class="price">￥6988.00</p>
+						<a href="#" class="view">查看详情</a>
+					</div>
+					<!-- 2、图片 -->
+					<img src="img/index/study_computer_img1.png">
+				</div>
+				<div></div>
+				<div></div>
+				<div class="product"></div>
+				<div class="product"></div>
+				<div class="product"></div>
+			</div>
+		</div>
+		<!-- 2、2F ：最新上架 -->
+		<!-- 3、3F ：热销单品 -->
+	</div>
+ </body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+	/*
+		var a = Number(prompt("请输入一个数字:"));
+		var b = Number(prompt("请输入一个数字:"));
+		//如果 a 大于 b的话，则交换两个数字的位置
+		// a ^= b ; ==> a = a ^ b;
+		a > b && (a^=b,b^=a,a^=b);
+		console.log(a,b);
+		*/
+	</script>
+
+	<script>
+		/*条件运算符*/
+		var score = prompt("请输入您的考试成绩：");
+		var msg = score == 100 ? "满分" :
+		score >= 90 ? "优" :
+		score >= 80 ? "良" :
+		score >= 60 ? "及格" : "不及格";
+		console.log("您的成绩级别为:"+msg);
+	</script>
+ </body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    var str="Hello";//new String("Hello")
+    //给str 10块钱
+    str.money=10; //new String(str).money=10
+    /***new String()没有变量保存，所以自动释放***/
+    //立刻问str，刚才给了多少钱
+    console.log(str.money);//undefined
+              //new String(str).money
+              //已经不是刚才的new String了
+    //留住money，应该怎么改？！
+  </script>
+ </body>
+</html>

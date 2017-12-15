@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<script>
+		/**
+		 * 将 uname 里面的值 显示在 show 中
+		 */
+		function showUname(){
+			//1、获取 id 为 uname 元素的值，保存在 value 中
+			var value = document.getElementById("uname").value;
+			//2、将 value 拼个 <h1></h1>再存放到 show 的里面去
+			document.getElementById("show").innerHTML="<h1>"+value+"</h1>";
+		}
+	</script>
+ </head>
+ <body>
+  <div id="show"></div>
+	<input type="text" id="uname">
+	<button onclick="showUname()">显示</button>
+ </body>
+</html>

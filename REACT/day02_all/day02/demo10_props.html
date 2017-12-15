@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+
+  var MyButton = React.createClass({
+    myIndex:10,
+    handleClick: function () {
+      //在该方法中 去调用 父组件传递来的方法
+      this.props.myClick(this.myIndex);
+    },
+    render: function () {
+      return <button onClick={this.handleClick}>
+        {this.props.btnName}
+      </button>
+    }
+  })
+
+  var MyForm = React.createClass({
+    handleRegister: function (arg1) {
+      console.log('点击了注册的按钮,父组件接收到子组件的值是'+arg1);
+
+    },
+    handleLogin: function (arg1) {
+      console.log('点击了登录的按钮,父组件接收到子组件的值是'+arg1);
+    },
+    render: function () {
+      return <div>
+        <MyButton
+      myClick={this.handleRegister}
+      btnName="注册"></MyButton>
+        <MyButton
+      myClick={this.handleLogin}
+      btnName="登录"></MyButton>
+      </div>
+    }
+  })
+
+
+  ReactDOM.render(
+      <MyForm></MyForm>  ,
+      document.getElementById('example')
+  );
+
+</script>
+
+
+</body>
+</html>

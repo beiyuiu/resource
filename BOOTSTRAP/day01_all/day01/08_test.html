@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+    <h2>知识管理系统--开始测试</h2>
+    <hr/>
+    <ul id="list">
+      <!--<li><span>red</span><input></li>-->
+      <!--<li><span>blue</span><input></li>-->
+    </ul>
+    <input id="btSubmit" type="button" value="提交试卷"/>
+    <script>
+      //根据客户端永久存储的k-v，生成试卷
+      var html = "";
+      for(var i=0;i<localStorage.length;i++){
+        var k = localStorage.key(i);
+        html += `
+         <li><span>${k}</span><input /></li>
+        `;
+      }
+      list.innerHTML = html;
+      //15:35--15:40
+      //监听"提交试卷"单击,获取用户的输入与正确答案
+      //对比,成绩 总共数 正确数 错误数
+      btSubmit.onclick = function(){
+        //a:创建三个变量分别保存
+        //总数 正确 错误数量
+        var total = localStorage.length;
+        var correct = 0;//正确单词数量
+        var error = 0;//错误单词数量
+        //b:获取用户输入所有答案
+        var inputList = document.querySelectorAll("#list input");
+        //c:创建循环获取并且判断每一个用户输入答案
+        for(var i=0;i<inputList.length;i++){
+          //d:获取当前答案
+          var inputC = inputList[i].value;
+          //e:获取正确答案
+          var key = localStorage.key(i);
+          var val = localStorage.getItem(key);
+          //f:判断
+          if(val==inputC){
+            correct++;
+          }
+        }
+        //g:循环结束分析数量保存结果
+        //sessionStorage
+        sessionStorage.setItem("total",total);
+        sessionStorage.setItem("correct",correct);
+        sessionStorage.setItem("error",total-correct);
+        location.href = "09_result.html";
+      }
+    </script>
+</body>
+</html>

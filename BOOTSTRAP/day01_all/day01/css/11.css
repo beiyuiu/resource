@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+}
+/*如果PC屏幕执行如下代码    >992px*/
+@media screen and (min-width:992px){
+    .box{background: red;color:#fff;
+    font-size:14px}
+    h1{font-size:2em}
+}
+/*如果PAD屏幕执行如下代码   991~768*/
+@media screen and (min-width:768px) and (max-width:991px){
+    .box{background: green;color:#fff;
+    font-size: 12px}
+    h1{font-size: 1em}/*17:55--17:58*/
+}
+/*如果PHONE屏幕执行如下代码 <767*/
+@media screen and (max-width: 767px){
+    .box{background: blue;color:#fff;
+    font-size:10px;}
+    h1{font-size: 1em}
+}

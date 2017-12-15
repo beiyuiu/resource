@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    //东哥:函数的作者
+    function round(num,d){
+      if(!isNaN(num)&&!isNaN(d)){
+        num*=Math.pow(10,d);
+        return Math.round(num)/Math.pow(10,d);
+      }else
+        throw new TypeError(
+          "孙子！必须输入数字！");
+    }
+    //大旭:函数的调用者
+    var num=prompt("输入一个数字");
+    var d=prompt("输入小数位数");
+    if(!isNaN(num)&&!isNaN(d))//try{
+      console.log(round(num,d));
+    else//}catch(err){
+      alert("必须输入数字!");
+    console.log("大旭的程序正常执行...");
+  </script>
+ </body>
+</html>

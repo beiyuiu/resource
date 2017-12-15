@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>递归调用</title>
+ </head>
+ <body>
+  <script>
+		/**
+		 * 计算数字 n 的阶乘
+		 * 边界条件 ：n 为 1 时 ，返回 1
+		 * 递归前进 ：当 n 大于 1的时候，继续调用函数 ：
+				n * f(n-1)
+		 * 递归返回 ：将 n*f(n-1) 返回即可
+		 */
+		function f(n){
+			// 判断是否到达边界条件，如果到达，则返回1
+			/*if(n == 1){
+				return 1;
+			}else{
+				return n * f(n-1);
+			}*/
+
+			//通过 条件运算符 改版
+			return n == 1 ? 1 : n * f(n-1);
+		}
+
+		/*调用 f() 函数*/
+		console.log(f(5));
+	</script>
+ </body>
+</html>

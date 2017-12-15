@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <button id="btn">click me!</button>
+  <script>
+    var Bob={
+      sname:"鲍勃",
+      friends:["Jack","Rose","Tom","Jerry"],
+      intr(){
+        this.friends.forEach(friend=>
+          console.log(this.sname+" 认识 "+friend)
+        );
+      }
+    }
+    Bob.intr();
+
+    btn.onmouseover=function(){
+      this.style.background="Yellow";
+    };
+    btn.onmouseout=function(){
+      this.style.background="";
+    };
+  </script>
+ </body>
+</html>

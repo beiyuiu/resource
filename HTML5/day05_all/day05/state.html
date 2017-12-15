@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    svg{background: #ddd}
+  </style>
+</head>
+<body>
+  <svg id="s2" width="800" height="600"></svg>
+  <script src="jquery.js"></script>
+  <script>
+    $.ajax({
+      type:"GET",
+      url:"state.php",
+      success:function(data){
+         console.log(data);
+        //1:依据返回数据画矩形，颜色
+        //2:依据返回数据画渐变对象, 使用渐变对象画矩形
+      },
+      error:function(){
+        alert("网络故障请检查");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    var birth="19831226";
+    //birth=birth.slice(0,4)+"年"+birth.slice(4,6)+"月"+birth.slice(6)+"日";
+    birth=birth.replace(
+      /(\d{4})(\d{2})(\d{2})/,"$1年$2月$3日"
+    );//  1      2      3
+    console.log(birth);
+
+    var str="I like test,eat,lol,drink,wow";
+    var arr=str.match(/\b([a-z])[a-z]*\1\b/g);
+                         // 1          |
+                         // ↑----------+
+    console.log(arr);
+  </script>
+ </body>
+</html>

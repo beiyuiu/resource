@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+   <h1>H5新特性--音频播放</h1>
+   <audio id="mbg" src="res/bg.mp3"   loop></audio>
+   <label>
+     <input type="checkbox" id="bg"/>
+     是否播放背景音乐
+   </label>
+   <script>
+     var bg = document.getElementById("bg");
+     var mbg = document.getElementById("mbg");
+//     bg.onchange = function(){
+//       if(this.checked){
+//         mbg.play();
+//       }else{
+//         mbg.pause();
+//       }
+//     }
+
+//音量渐渐变大效果
+//volumn {0~1}
+//定时器  0+0.1
+bg.onchange = function(){
+  //1:判断复选框是否被选中
+  if(this.checked) {
+    //2:选中
+    mbg.volume = 0;
+    //3:音量=0
+    mbg.play();
+    //4:播放音乐
+    var t = setInterval(function(){
+      mbg.volume += 0.1;
+      if(mbg.volume>0.9){
+        clearInterval(t);
+      }
+    },200);
+    //5:创建定时器 += 0.1
+    //6:0.9>
+  }else{
+    mbg.pause();
+  }
+}
+   </script>
+</body>
+</html>

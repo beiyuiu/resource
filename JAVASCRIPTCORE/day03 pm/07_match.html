@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script src="ajax.js"></script>
+  <script>
+    var str="No zuo no die,No can no bibi";
+    var arr=str.match(/no/ig);//No,no,No,no
+    console.log(arr);
+
+    //用ajax请求sina.html
+    ajax("get","sina.html","","text")
+    .then(function(html){//onreadystatechange
+      var reg=/<a [^>]*href="(http[^"]+)"/ig;
+      var urls=[];
+      do{
+        var arr=reg.exec(html);
+        if(arr!=null)
+          urls.push(arr[1]);
+        else break;
+      }while(true);
+      console.log(urls);
+    });
+    
+  </script>
+ </body>
+</html>

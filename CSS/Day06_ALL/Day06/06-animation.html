@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		/*声明动画*/
+		@keyframes scroll{
+			0%{
+				background:green;
+				transform:translate(0px) rotate(0deg);
+			}
+
+			100%{
+				background:pink;
+				transform:translate(500px) rotate(360deg);
+			}
+		}
+
+		#d1{
+			width:100px;
+			height:100px;
+			background:yellow;
+			border:5px solid red;
+			text-align:center;
+			line-height:100px;
+			font-size:36px;
+			border-radius:50%;
+			/*调用动画*/
+			animation-name:scroll;
+			animation-duration:3s;
+			animation-delay:5s;
+			/*animation-timing-function:linear;*/
+			/*animation-iteration-count:infinite;*/
+			/*animation-direction:alternate;*/
+			animation-fill-mode:both;
+		}
+
+		#d1:hover{
+			animation-play-state:paused;
+		}
+	</style>
+ </head>
+ <body>
+  <div id="d1">动画</div>
+ </body>
+</html>

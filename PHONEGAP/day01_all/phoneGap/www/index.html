@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div class="app">
+        <button onclick="writeSth()">写</button>
+        <button onClick="readSth()">读</button>
+        <img id="myPhoto"/>
+        <br/>
+        <button onclick="setPhoto()">设置头像</button>
+        <br/>
+        <button onclick="startVibrate()">震动</button>
+        <button onclick="startBeep()">声音</button>
+        <button onclick="showAlert()">弹窗</button>
+        <button onclick="record()">采集音频</button>
+        <button onclick="watch()">start</button>
+        <button onclick="stop()">stop</button>
+        <h1>Hello PhoneGap</h1>
+        <h2 id='myInfo'>正在获取设备信息...</h2>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+        <button onclick="getNowAcc()">当前</button>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+        //写操作 准备向文件系统的根目录下创建一个文件readme.txt,
+        //并写入'hello phonegap'
+
+        function fail(){
+            alert('operate failed');
+        }
+
+        function readSth(){
+              window.requestFileSystem(
+                LocalFileSystem.PERSISTENT,
+                0,
+                function(fs){
+                    console.log('get fs success');
+                    //得到文件的入口对象
+                    fs.root.getFile(
+                        'readme.txt',
+                        null,
+                        function(fileEntry){
+                            console.log('get fileEntry success');
+                            //通过file方法得到文件的所有信息
+                            fileEntry.file(
+                                function(file){
+                                    var reader = new FileReader();
+                                    reader.onloadend =function(event){
+                                        alert(event.target.result);
+                                    }
+                                    reader.readAsText(file);
+                                },
+                                fail
+                            )
+
+                            //创建一个fileReader完成读操作
+                        },
+                        fail
+                    );
+                },
+                fail
+            )
+        }
+
+        function writeSth(){
+            console.log('ready to write');
+            //得到文件系统
+            window.requestFileSystem(
+                LocalFileSystem.PERSISTENT,
+                0,
+                function(fs){
+                    console.log('get fs success');
+                    //得到文件的入口对象
+                    fs.root.getFile(
+                        'readme.txt',
+                        {create:true},
+                        function(fileEntry){
+                            console.log('get fileEntry success');
+                            //创建一个文件写对象，完成写操作
+                            fileEntry.createWriter(
+                                function(writer){
+                                    console.log('get fileWriter success');
+                                    //绑定写操作成功之后的处理函数
+                                    writer.onwrite=function(){
+                                        alert('write success!');
+                                    }
+                                    //写操作
+                                    writer.write('Hello PhoneGap');
+                                },
+                                fail
+                            )
+                        },
+                        fail
+                    );
+                },
+                fail
+            )
+
+            //得到文件的入口对象
+
+            //写操作
+        }
+
+        myId=null;
+        //从相册中选择图片，并设置给img
+        function setPhoto(){
+            //通过camera插件打开相册，选取图片
+            navigator.camera.getPicture(
+                function(url){
+                    console.log(url);
+                    //设置img标签
+                    document.getElementById('myPhoto')
+                        .src=url;
+                },
+                function(){},
+                {sourceType:Camera.PictureSourceType.PHOTOLIBRARY}
+            );
+        }
+
+        //震动
+        function startVibrate(){
+            navigator.notification.vibrate(3000);
+        }
+
+        //发出蜂鸣声
+        function startBeep(){
+            navigator.notification.beep(3);
+        }
+
+        //显示一个警告窗口
+        function showAlert(){
+          navigator.notification
+            .alert('Hello Notification');  
+        }
+
+        //采集音频信息
+        function record(){
+            navigator.device.capture
+                .captureImage(
+                    function(list){
+                        for(var i=0;i<list.length;i++){
+                            //list数组保存是录制的音频的信息的列表
+                            console.log(list[i].fullPath);
+                        }
+                    },
+                    function(){
+                        alert('采集失败！');
+                    },
+                    {limit:2}
+                );
+        }
+
+        //每隔500ms监听一下 加速度信息
+        function watch(){
+            if(myId)
+            {
+                return 
+            }
+             myId = navigator.accelerometer
+                .watchAcceleration(
+                    function(result){
+                        console.log(
+                            result.x+"  "+
+                            result.y+"  "+
+                            result.z);
+                    },
+                    function(){},
+                    {frequency:500}
+                );
+        }
+        //结束监听
+        function stop(){
+            navigator.accelerometer.clearWatch(myId);
+            myId = null;
+        }
+
+
+        //得到当前的加速度传感器信息
+        function getNowAcc(){
+            navigator.accelerometer
+            .getCurrentAcceleration(
+                function(result){
+                    console.log('获取成功'
+                    +"x is "+result.x
+                    +"y is "+result.y
+                    +"z is "+result.z);
+                },
+                function(){
+                    console.log('获取失败');
+                }
+            )  
+        }
+
+    </script>
+</body>
+
+</html>

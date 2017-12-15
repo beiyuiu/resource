@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+  var MyInputComponent = React.createClass({
+    handleChange: function () {
+      //将当前输入的内容 发送给父组件
+      // this.refs.myInput.value
+      this.props.funcSave(this.refs.myInput.value);
+    },
+    render: function () {
+      return <input ref="myInput"
+          onChange={this.handleChange}
+          type="text" placeholder="请输入"/>
+    }
+  })
+  var MyButtonComponent = React.createClass({
+    handleClick: function () {
+      //调用父组件中的属性传递来的方法
+      var userInput = this.props.funcGet();
+      alert(userInput);
+    },
+    render: function () {
+      return <button onClick={this.handleClick}>
+              clickMe
+            </button>
+    }
+  })
+  var MyMainComponent = React.createClass({
+    userMsg:'',
+    save: function (msg) {
+      console.log("子组件当前传递来的数据为"+msg);
+      this.userMsg = msg;
+      console.log("this.userMsg:"+this.userMsg);
+    },
+    get: function () {
+      return this.userMsg;
+    },
+    render: function () {
+      return <div>
+        <MyInputComponent funcSave={this.save}>
+        </MyInputComponent>
+        <MyButtonComponent funcGet={this.get}>
+      </MyButtonComponent>
+      </div>
+    }
+  })
+
+  ReactDOM.render(
+      <MyMainComponent/>,
+      document.getElementById('example')
+  );
+
+</script>
+
+
+</body>
+</html>

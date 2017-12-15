@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		/**
+		 * 通过 continue 实现 1-100之间所有偶数的和
+		 */
+		function calSum(){
+			//1、声明变量 sum ，初始值为 0，用于累加1-100之间偶数的和
+			var sum = 0;
+			//2、通过循环完成 1-100之间偶数和的相加
+			/*
+			 * 2.1 循环条件：从1 开始 到 100 结束
+			 * 2.2 循环操作：如果 是奇数的话，则continue，否则，将值累加到 sum 之后
+			 */
+			var i = 1;
+			while(i <= 100){
+				//判断是否为奇数
+				if((i & 1) == 1){
+					i++;
+					continue;
+				}
+				//将 i 的值，累加到 sum 之后
+				sum += i;
+				i++
+			}
+
+			console.log("1-100之间偶数的和为:"+sum);
+		}
+		
+		/**实现 1- 100之间所有偶数的和*/
+		function calSum1(){
+			var sum = 0;
+			var i = 1;
+			while(i <= 100){
+				if(i % 2 == 0){
+					sum += i;
+				}
+				i++;
+			}
+			console.log("偶数和为:"+sum);
+		}
+
+		
+		/**
+		 * 用户循环录入数据，直到输入 exit 为止
+		 */
+		function printMsg(){
+			while(true){
+				//1、让用户录入数据，并保存在变量 msg 中
+				var msg = prompt("Input:");
+				//2、判断 msg 是否为 exit，如果是，则退出(break)
+				if(msg == "exit"){
+					break;
+				}
+				//3、打印输出 msg 的值到控制台上
+				console.log(msg);
+			}
+		}
+
+		function printMsg1(){
+			//1、声明一个变量 msg ，用于接收用户输入的数据
+			var msg;
+			//2、循环 ：
+			while((msg=prompt("Input:")) != "exit"){
+				console.log(msg);
+			}
+		}
+		/*猜数字游戏*/
+		function guess(){
+			//1、循环外 ：生成一个随机数
+			var r = parseInt(Math.random()*100)+1;
+			//2、循环内 ：不确定循环次数
+			while(true){
+				//2.1 让用户录入一个数据，并保存在input中
+				var input = prompt("请输入一个数字，exit为退出：");
+				//2.2 判断是否为 exit，如果是exit则 break
+				if(input == "exit"){
+					alert("再见!!!");
+					break;
+				}
+				//2.3 与 随机数进行比较，并给出提示，如果猜对了，给出提示后再break
+				if(input > r){
+					alert("猜大了");
+				}else if(input < r){
+					alert("猜小了");
+				}else{
+					alert("猜对了!");
+					break;
+				}
+			}
+		}
+	</script>  
+	<button onclick="guess()">猜数字游戏</button>
+	<button onclick="calSum1()">打印1-100之间所有偶数的和</button>
+	<button onclick="printMsg1()">打印信息</button>	
+ </body>
+</html>

@@ -1,0 +1,38 @@
+<!--
+  Generated template for the Demo20LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>demo20-login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!--ionic中的表单是靠ionList和ionItem去管理-->
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>用户名</ion-label>
+      <ion-input 
+      [(ngModel)]="uName"
+      placeholder="请输入用户名"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>密码</ion-label>
+      <ion-input type="password" placeholder="请输入密码"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button (click)="jump()"
+       ion-button block> 登录 </button>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button [navPush]="myDestination">
+    跳转到Demo22
+  </button>
+</ion-content>

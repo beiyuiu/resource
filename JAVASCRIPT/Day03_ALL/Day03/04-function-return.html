@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		/**
+		 * 声明一个函数，名称为 calSum，接收两个参数(a,b)，在函数体内计算 a 和 b的和并返回
+		 */
+		 function calSum(a,b){
+			return a+b;
+		 }
+
+		 /** 
+		  * 声明一个函数，名称为 testCalSum,用于调用calSum函数并传递参数
+		  */
+		function testCalSum(){
+			var result = calSum(3,5);
+			console.log(result);
+			alert(result);
+			document.write(result);
+		}
+
+		/**
+		 * 定义一个函数，接收三个参数，并返回最大值
+		 */
+		function getMax(a,b,c){
+			//1、声明一个变量 max，用于保存最大值，先将第一个数 a，赋值给 max
+			var max = a;
+			//2、比较 b 与 max 之间的大小，如果 b 比 max 大，则将 b 的值，赋值给 max
+			b > max && (max = b);
+			//3、比较 c 与 max 之间的大小，如果 c 比 max 大，则将 c 的值，赋值给 max
+			c > max && (max = c);
+			//4、返回max
+			return max;
+		}
+	</script>  
+	<button onclick="testCalSum()">testCalSum()</button>
+	<button onclick="console.log(getMax(38,96,17))">获取三个数中的最大值</button>
+ </body>
+</html>

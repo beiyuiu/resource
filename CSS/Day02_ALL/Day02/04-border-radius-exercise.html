@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#img-list{
+			/*宽度，高度，边框*/
+			width:500px;
+			height:150px;
+			border:1px solid #000;
+			/*溢出处理*/
+			overflow:auto;
+		}
+
+		#img-list>p{
+			/*宽度，高度*/
+			width:800px;
+			height:100px;
+		}
+
+		#img-list>p>img{
+			width:100px;
+		}
+
+
+		/********倒角 / 阴影的练习*********/
+		/*1、找到所有的图片，并且增加 5px 的倒角*/
+		#img-list>p>img{
+			border-radius:5px;
+		}
+		/*2、鼠标悬停在图片上时，增加阴影：右下偏移5px，颜色为 #ddd*/
+		#img-list>p>img:hover{
+			box-shadow:5px 5px #ddd;
+		}
+	</style>
+ </head>
+ <body>
+  <div id="img-list">
+		<p>
+			<img src="Images/p_small_001.jpg">
+			<img src="Images/p_small_002.jpg">
+			<img src="Images/p_small_003.jpg">
+			<img src="Images/p_small_004.jpg">
+			<img src="Images/p_small_005.jpg">
+			<img src="Images/p_small_006.jpg">
+			<img src="Images/p_small_007.jpg">
+		</p>
+	</div>
+ </body>
+</html>

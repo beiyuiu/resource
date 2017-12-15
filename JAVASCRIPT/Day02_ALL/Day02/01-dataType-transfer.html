@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>数据类型转换</title>
+ </head>
+ <body>
+  <script>
+		var uname = "张三丰";
+		var uage = 68;
+		var ugender = false;
+		var isSun = true;
+		
+		var result1 = uname + uage;
+		console.log(result1);
+		console.log(typeof(result1));
+
+		var result2 = uname + ugender;
+		console.log(result2);//张三丰false 
+		console.log(typeof(result2));//string
+
+		var result3 = uage + ugender;
+		console.log(result3);//68
+		console.log(typeof(result3));//number
+
+		var result4 = ugender + isSun;
+		console.log(result4);
+		console.log(typeof(result4));
+	</script>
+ </body>
+</html>

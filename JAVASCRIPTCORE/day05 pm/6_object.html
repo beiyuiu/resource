@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    var lilei={
+      sname:"Li Lei",
+      sage:11,
+      intr(){//ES6
+        console.log(
+          "I'm "+this.sname+", I'm "+this.sage);
+      }
+    };
+    console.log(lilei);
+    lilei.intr();//this->.前的任何东西
+    lilei.sage++;
+    console.log(lilei["sage"]);//12
+    lilei.intr();
+  </script>
+ </body>
+</html>

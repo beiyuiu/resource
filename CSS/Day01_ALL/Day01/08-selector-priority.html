@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>选择器-优先级</title>
+	<style>
+		#s1{ color:orange; }/*100*/	
+		#d1 span{color:yellow;}/*100+1=101*/
+
+		/*10+1=11*/
+		.pp span{ color:purple; font-size:36px; }
+		#p1 span{ color:blue; }/*100+1=101*/
+		#p1 #s1{ color:pink; }/*100 + 100 = 200*/
+		#d1 p.pp span{ color:red;}/*100+1+10+1=112*/
+
+		#container{color:red;}
+		span{color:orange;}
+		#container span{color:#D95225;}
+	</style>
+ </head>
+ <body>
+	<div id="container">
+		<span>这是一个无与伦比的span</span>
+	</div>
+
+  <div id="d1">
+		<p id="p1" class="pp">
+			<span id="s1">这是div中的p中的span</span>
+		</p>
+	</div>
+ </body>
+</html>

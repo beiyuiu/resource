@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .ok{color:green}
+    .err{color:red}
+    .hidden{display:none}
+  </style>
+ </head>
+ <body>
+ <form>
+    密码:<input id="upwd" type="password">
+    <span id="msgUpwd" class="hidden">必须6位数字</span><br>
+    生日:<input id="birth">
+    <span id="msgBirth" class="hidden">必须符合日期格式</span><br>
+    身份证号:<input id="pid">
+    <span id="msgPid" class="hidden">必须符合身份证号格式规范</span><br>
+    手机号:<input id="mobile">
+    <span id="msgMobile" class="hidden">必须符合手机号格式规则</span><br>
+    邮箱:<input id="email">
+    <span id="msgEmail" class="hidden">必须符合邮箱格式规则</span><br>
+    qq:<input id="qq">
+    <span id="msgQQ" class="hidden">必须符合qq号格式规范</span><br>
+    <input id="btnSubmit" type="button" value="提交">
+  </form>
+  <script>
+    function vali(elem,reg,msgSpan,errMsg){
+      //验证密码的格式
+      var i=elem.value.search(reg);
+      if(i!=-1){//如果验证通过
+        msgSpan.innerHTML="格式正确!";
+        msgSpan.className="ok";
+        return true;
+      }else{//否则
+        msgSpan.innerHTML=errMsg;
+        msgSpan.className="err";
+        return false;
+      }
+    }
+    function bind(elem,reg,msgSpan,errMsg){
+      //当密码框获得焦点时
+      elem.onfocus=function(){
+        msgSpan.className="";
+        msgSpan.innerHTML=errMsg;
+      };
+      //当密码框失去焦点时
+      elem.onblur=
+      elem.onkeyup=function(){
+        vali(elem,reg,msgSpan,errMsg)
+      }
+    }
+    
+    bind(upwd,/^\d{6}$/,msgUpwd,"必须是6位数字");
+    bind(
+      birth,
+      /^\d{4}\/\d{2}\/\d{2}$/,
+      msgBirth,
+      "必须符合日期格式"
+    );
+    bind(
+      pid,
+      /^\d{15}(\d{2}[0-9Xx])?$/,
+      msgPid,
+      "必须符合身份证号格式"
+    );
+
+    btnSubmit.onclick=function(){
+      var rUpwd=vali(____,____,____,____);
+      var rBirth=vali(____,____,____,____);
+      var rPid=vali(____,____,____,____);
+      if(rUpwd&&rBirth&&rPid)
+        alert("提交成功！");
+    }
+  </script>
+ </body>
+</html>

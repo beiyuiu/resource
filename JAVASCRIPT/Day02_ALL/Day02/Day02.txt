@@ -1,0 +1,262 @@
+1、数据类型
+	1、什么是数据类型
+		保存在变量中的数据的类型是什么
+		它决定了数据在内存中要占多大的空间
+
+		bit : 位
+		8bit = 1byte 字节
+		1024byte = 1kb 千字节
+		1024kb = 1MB 兆字节
+		1024MB = 1GB 
+		1024GB = 1TB
+	2、数据类型分类
+		1、原始类型(基本类型/值类型)
+			1、number 类型
+				数字类型，表示32位(4字节)的整数以及64位(8字节)的浮点数
+
+				整数：
+					1、十进制 ：10,457,6989
+						var num = 457;
+					2、八进制 
+						由 0-7 共8个数字组成，逢8进1
+						在JS中，数字以0开始的，都是8进制数字
+						var num = 010;//8进制数的10，表示的是十进制的8
+					3、十六进制
+						由 0-9，A-F组成，逢16进1
+						在JS中，数字以0x开始的，都是十六进制数字
+						var num = 0x10;//十六进制的10，表示的是十进制的16
+				小数：
+					使用小数点记录数据：123.456，78.5
+					使用指数记录数据：1.2e2 （1.2 * 10的2次方）
+			2、string 类型
+				 字符串类型
+				 需要使用 "" 或 '' 括起来
+				 由Unicode字符，数字，标点组成
+					每个字符都有一个Unicode码
+					将 字符 转换为 Unicode码:"张".charCodeAt().toString(16)
+					将 Unicode码 转换为 字符: var s="\u5f20"
+					中文的范围是从 "\u4e00" ~ "\u9fa5"
+
+				 练习：
+					1、将各自的姓名中的每个字符，都转换为Unicode码
+					2、再将姓名的Unicode码转换为对应的字符
+				 转义字符：
+					控制台中打印输出 "Hello World"
+					作用：在JS中，表示一些特殊的符号或功能
+						\n : 换行
+						\t : 一个制表符(缩进键)
+						\" : "
+						\' : '
+						\\ : \
+					var str = "Hello \n Word";
+			3、boolean 类型
+				仅有两个值 ：true 和 false
+				boolean 与 number 在进行运算时，true 当做1，false当做0
+				var num = 1;
+				var res = true;
+				console.log(num+res); // 2
+			4、null 空
+				让对象不再指向任何空间
+			5、undefined 未定义
+				出现场合：
+					1、声明变量但从未赋值时
+					2、试图访问对象中不存在的属性
+		2、引用类型
+			... ...
+	3、查看变量的数据类型
+		var result = typeof(变量);
+		练习：
+			1、声明一个变量，保存数据 "张三丰"，打印数据类型
+			2、声明一个变量，保存数据 68，打印数据类型
+			3、声明一个变量，保存数据 true，打印数据类型
+2、数据类型转换
+	1、隐式转换
+		在某些操作中，变量的数据类型会自动的产生转换操作
+		数字 + 字符串 ：数字转换为字符串
+		数字 + 布尔值 ：将布尔值转换为数字
+		字符串 + 布尔值 ：将布尔值转换为字符串
+		布尔值 + 布尔值 ：将布尔值转换为数字
+	2、转换函数
+		1、toString()
+			作用：将任意类型的数据转换为字符串
+			语法：var result = 变量.toString()
+		2、parseInt()
+			作用：将任意类型的数据转换为"整数"
+			语法：var result = parseInt(转换的数据);
+			注意：
+				parseInt() 把能转的部分都转掉，实在转不了，则返回一个NaN(Not a Number)
+				var result = parseInt("35"); 结果：35
+				var result = parseInt("35.5"); 结果：35
+				var result = parseInt("35abc"); 结果：35
+				var result = parseInt("你好"); 结果：NaN
+				var result = parseInt("你好35"); 结果：NaN
+		3、parseFloat()
+			作用：将任意类型的数据转换为"小数"
+			var result = parseFloat("35.3abc"); 结果：35.3
+			var result = parseFloat("abc35.3"); 结果：NaN
+		4、Number()
+			作用：将任意类型的数据转换为number类型
+			注意：只要包含非法字符，结果就是 NaN
+			语法：var result = Number(变量);
+			var result = Number("35.3"); 结果：35.3
+			var result = Number("35abc"); 结果：NaN
+
+			var input = window.prompt("请输入一个数字");
+3、运算符 和 表达式
+	1、表达式
+		每个表达式一定会有一个结果
+	2、运算符
+		1、算术运算符
+			+，-，*，/，%，++，--
+			1、% ：取余数
+				5 % 2 ：结果 1
+				2 % 5 ：结果 2
+
+				练习：
+					声明一个变量保存数字：1234
+					将以上数字的每位数字取出来保存在独立的变量中
+					输出：
+						个位：4
+						十位：3
+						百位：2
+						千位：1
+			2、++ ，--
+				只在自己的基础上做加1或减1的操作
+				var num = 10;
+				console.log(num++); //输出 ：10 ,输出后num变为11
+				console.log(++num); //输出 ：12,先由11自增为12，再输出
+				console.log(num); //输出 ：12
+
+				++在前，先自增，再使用
+				++在后，先使用，再自增
+
+
+				var num = 10;
+				++num;
+				console.log(num); //11
+
+				var a = 10;
+				             10 (11)11 11(12) 12(13) (14)14 14
+				var result = a + ++a + a++ +  a++ +  ++a +  a;
+				结果：72
+			3、注意
+				1、"+"两边的操作数如果不是number类型的话，则做连接操作
+					var num = 23;
+					var str = "32";
+					var r = num + str; //2332
+
+					var num1 = 23;
+					var num2 = 32;
+					var str = "Hello";
+					var r = num1 + num2 + str; //55Hello
+					r = str + num1 + num2;//Hello2332
+					r = str + (num1 + num2);//Hello55
+				2、除 + 以外的其它算术运算符，如果两边的操作数不是 number 的话，会通过Number()函数，默认进行转换，如果转换不成功，最终的运算结果就是 NaN
+
+					var num1 = 10;
+					var str1 = "15";
+					var str2 = "18";
+					var str3 = "18abc";
+
+					var r = num1 - str1; // ? -5  
+					r = str1 - str2; // ? -3 
+					r = str2 - str3; // ? NaN "18"-"18abc"
+		2、关系(比较)运算符
+			1、作用
+				做两个数据之间的大小，相等 或 不等 关系判断的
+				关系运算符的运算结果，一定是 boolean 类型
+				>,<,>=,<=,==,===,!=,!==
+
+			2、注意
+				console.log(3 > 10); // false
+
+
+				运算符两端，如果有一个数number类型的话，那么另外一个会自动通过 Number() 进行转换，然后再做比较,如果转换失败，结果为 false
+				console.log("3" > 10); // false
+				console.log("3a" > 10); // false
+
+				如果运算符两端都是字符串的话，则比较每位字符的Unicode码，再决定大小
+				console.log("张三丰">"张无忌"); // false
+
+					张三(19977)丰
+				VS
+					张无(26080)忌
+				=======================
+
+				console.log("3" > "10");// true 
+					3(51)
+				VS
+				  1(49)0
+
+				console.log("78">"132");// true
+
+				var a = 10;
+				var b = "10";
+				console.log(a == b); // true
+				console.log(a === b); // false
+			3、isNaN()
+				var a = window.prompt("Input a number:");
+				
+				NaN:
+					1、参与算术运算时，结果一定是 NaN
+					2、参与比较运算时，结果一定是 false
+				判断是否为数字，使用：
+					isNaN()
+					var result = isNaN(变量);
+
+					isNaN判断变量是否为非数字，如果值为true，则不是数字，如果值为false，则是数字
+
+				isNaN("123"); // false
+				isNaN(123); // false
+				isNaN("123a"); // true
+
+				请输入一个数字：58
+				是奇数吗?false
+				是偶数吗?true
+		3、逻辑运算符
+			1、作用
+				条件的关联 以及 条件的取反操作
+				Q : 判断 变量 num 是否在 18 到 70 之间
+				
+				&& , || , !
+
+				条件1 ，条件2   &&     ||
+				true    true    true   true
+				true    false   false  true
+				false   true    false  true
+				false   false   false  false
+			2、练习1
+				1、闰年判断
+					1、从弹框中输入一个年份，判断是否为闰年，如果是闰年，则打印输出 true ， 否则输出 false
+					条件：能被4整除，但不能被100整除，或者能被400整除
+				2、判断字符
+					1、从弹框中输入1个字符
+					2、在控制台中输出
+						是一个英文字符吗? true / false
+						是一个数字吗? true / false
+						是一个汉字吗? true / false
+			3、短路逻辑
+				1、短路 &&
+					条件1 && 条件2 ，如果条件1为false的话，就不用继续判断条件2，整个表达式的结果就为 false
+
+					条件 && 操作 , 如果条件为true，则执行后面的操作，如果条件为false，则不执行后面的操作。
+					
+					练习：
+						1、从弹框中输入两个数字，分别保存到 a 和 b 两个变量中
+						2、如果 a > b 的话，则输出 ，a 比 b 大
+				2、短路 ||
+					条件1 || 条件2 如果条件1为true，则不用再执行条件2
+
+					条件 || 操作，当条件不为true的时候，再执行操作
+
+
+
+				3、作业
+					工资计算
+					1、从弹框中输入一个数字表示工资
+					2、如果 工资>=20000 , 提示 "高工资"
+					3、如果 工资在 8000 ~ 20000 之间，提示"中高工资"
+					4、如果 工资<8000，则提示 "普通工资"
+
+
+

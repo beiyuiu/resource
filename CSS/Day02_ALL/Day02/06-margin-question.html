@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#d1,#d2{
+			width:200px;
+			height:200px;
+		}
+		#d1{
+			background:yellow;
+		}
+		#d2{
+			background:red;
+			/*解决方案1*/
+			/*border-top:1px solid transparent;*/
+		}
+		#d3{
+			width:100px;
+			height:100px;
+			background:orange;
+			/*上外边距：50px，目的：让d3 离 d2 有50px的距离*/
+			margin-top:50px;
+		}
+	</style>
+ </head>
+ <body>
+	<div id="d1"></div>
+	<div id="d2">
+		<!-- 解决方案3 -->
+		<table></table>
+		<div id="d3"></div>
+	</div>
+ </body>
+</html>

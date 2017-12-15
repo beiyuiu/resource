@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function printArray(){
+			var names = ["张无忌","张翠山","张三丰"];
+			/**
+				输出以下格式的内容：
+					第1名 ：张无忌
+					第2名 ：张翠山
+					第3名 ：张三丰
+			*/
+			for(var i=0;i<names.length ; i ++){
+				console.log("第"+(i+1)+"名:"+names[i]);
+			}
+
+			/*使用 for ... in 完成上述内容*/
+			/*for(var 变量 in 数组){  }*/
+			for(var j in names){
+				console.log(typeof(j));
+				console.log("第"+(parseInt(j)+1)+"名:"+names[j]);
+			}
+		}
+
+		function relatedArray(){
+			var array = [];
+			array["西游记"] = "古代神话故事";
+			array["红楼梦"] = ["贾宝玉","林黛玉"];
+
+			console.log("数组长度:"+array.length);
+ 		}
+		
+		/**冒泡排序**/
+		function bubbleSort(){
+			var array = [23,9,78,6,45];
+			console.log("排序前："+array);
+			//1、外层循环：控制轮数，从1开始，到array.length-1结束
+			for(var i=1;i<=array.length-1;i++){
+				//2、内层循环：控制每轮中比较的次数，随着轮数的增加，次数要减少
+				for(var j=0;j<=array.length-1-i;j++){
+					//比较 当前数字array[j] 与 下一个数字array[j+1]之间的大小关系,如果 array[j]大于 array[j+1]的话，则互换位置
+					if(array[j] > array[j+1]){
+						array[j]^=array[j+1];
+						array[j+1]^=array[j];
+						array[j]^=array[j+1];
+					}
+				}
+			}
+
+			console.log("排序后："+array);
+		}
+	</script>
+	<button onclick="printArray()">打印数组中的元素</button>
+	<button onclick="relatedArray()">测试关联数组</button>
+	<button onclick="bubbleSort()">冒泡排序</button>
+ </body>
+</html>

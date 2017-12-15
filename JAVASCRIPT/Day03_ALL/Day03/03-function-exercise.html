@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		/*1、创建一个函数，名称为 change*/
+		function change(){
+			//1、通过弹框,分两次，录入两个数字，保存在 a 和 b
+			var a = Number(prompt("Input a number:"));
+			var b = Number(prompt("Input a number:"));
+			//2、先打印 a 和 b的值
+			console.log("交换前:");
+			console.log(a,b);
+			//3、如果 a > b 的话，则交换两个数字的位置
+			a > b && (a^=b,b^=a,a^=b);
+			//4、再打印 a 和 b的值
+			console.log("交换后:");
+			console.log(a,b);
+		}
+	</script>  
+	<!-- 创建一个按钮，点击时 调用 change() 函数 -->
+	<button onclick="change()">调用change函数</button>
+ </body>
+</html>

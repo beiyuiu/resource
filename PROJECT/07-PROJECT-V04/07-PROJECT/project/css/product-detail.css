@@ -1,0 +1,251 @@
+#product-details{
+	margin-top:10px;
+	display:flex;
+	justify-content:space-between;
+}
+
+#preview{
+	width:460px;
+}
+#preview>p{
+	width:460px;
+	height:460px;
+	overflow:hidden;
+	background:#fff;
+	text-align:center;
+}
+#preview>p>img{
+	transition:all .3s;
+}
+#preview>p>img:hover{
+	transform:scale(1.2);
+}
+#preview>ul li{
+	width:84px;
+	border:1px solid transparent;
+}
+#preview>ul li:hover{
+	border-color:#CECFCE;
+}
+#preview>ul li img{
+	width:100%;
+}
+#preview>ul{
+	margin-top:10px;
+	display:flex;
+	justify-content:space-between;
+}
+/*右侧：文字信息*/
+#show-details{
+	width:490px;
+	height:460px;
+	/*弹性布局，主轴为纵轴，两端对齐*/
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+#show-details>h1{
+	font-size:18px;
+	color:#333;
+	font-family:"microsoft yahei";
+}
+#show-details>h3>a{
+	color:#333;
+}
+#show-details div.stu-price>span{
+	font-size:34px;
+	color:#0aa1ed;
+}
+#show-details div.price{
+	font:14px "microsoft yahei";
+	/*内边距，渐变背景色，边框阴影，边框倒角*/
+	padding:20px 10px;
+	background:linear-gradient(to bottom,#f0f0f0,#e2e2e2);
+	box-shadow:0 0 10px #ccc;
+	border-radius:3px;
+}
+#show-details div.price b{
+	font-weight:400;
+}
+#show-details div.parameter b{
+	font:normal 14px "microsoft yahei";
+}
+#show-details div.parameter img{
+	position:relative;
+	top:-8px;
+	left:-5px;
+}
+
+/*规格*/
+#show-details div.spec{
+	display:flex;
+}
+#show-details div.spec p{
+	flex-shrink:0;
+	font:14px "microsoft yahei";
+}
+
+#show-details div.spec a{
+	/*外边距,内边距，边框*/
+	margin:0 3px 3px 0;
+	padding:8px 10px;
+	border:1px solid #666;
+	display:inline-block;
+}
+#show-details div.spec a.active{
+	border:2px solid #0aa1ed;
+	padding:7px 9px;
+}
+/*数量*/
+#show-details div.count>span{
+	font:14px "microsoft yahei";
+}
+#show-details div.count>button{
+	/*宽度，高度，背景颜色，文字大小*/
+	width:36px;
+	height:36px;
+	background:#ddd;
+	font-size:16px;
+	border:none;
+}
+#show-details div.count>input{
+	/*box-sizing，宽度，高度，边框，文本水平居中，文字大小*/
+	box-sizing:border-box;
+	width:36px;
+	height:36px;
+	border:1px solid #ddd;
+	text-align:center;
+}
+/*立即购买等按钮*/
+#show-details div.shops a.buy{
+	/*行内块，宽度，高度，行高，文本水平居中对齐，边框，文字大小，文字颜色，背景颜色，边框倒角*/
+	display:inline-block;
+	width:160px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	border:1px solid #ddd;
+	font-size:20px;
+	color:#0aa1ed;
+	background:linear-gradient(to bottom,#f0f0f0,#e0e0e0);
+	border-radius:3px;
+}
+/*为你推荐*/
+#recommend{
+	margin-top:20px;
+}
+#recommend>p{
+	font-size:24px;
+	color:#333;
+	font-weight:bold;
+	margin-bottom:15px;
+}
+#recommend>p>span{
+	/*文字大小，文字颜色，背景颜色，内边距*/
+	font-size:14px;
+	color:#fff;
+	background:#333;
+	padding:2px 5px;
+}
+#demo{
+	border:1px solid #ddd;
+	padding:10px;/*暂定*/
+}
+#demo1{
+	display:flex;
+	justify-content:space-between;
+}
+#demo1 li{
+	/*box-sizing，宽度，文本水平居中对齐*/
+	box-sizing:border-box;
+	width:25%;
+	text-align:center;
+	padding:0 5px;
+}
+#demo1 li p{
+	font-weight:bold;
+	color:#333;
+	margin-top:20px;
+}
+/*商品详情*/
+#item-info{
+	margin-top:20px;
+	display:flex;
+}
+#details{
+	width:800px;
+}
+#addCart{
+	width:160px;
+}
+/*页签*/
+#details ul.tab{
+	/*高度，行高，渐变背景，边框阴影,左右内边距*/
+	height:46px;
+	line-height:46px;
+	background:linear-gradient(to bottom,#eff0f0,#e0dfe0);
+	box-shadow:3px 3px 6px #ccc;
+	padding:0 5px;
+	/*弹性布局的容器*/
+	display:flex;
+}
+#details ul.tab a{
+	/*行内块，高度，左右内边距*/
+	display:inline-block;
+	height:46px;
+	padding:0 15px;
+	/*文字：大小，加粗，颜色*/
+	font-size:16px;
+	font-weight:bold;
+	color:#808080;
+}
+#details ul.tab a.active{
+	/*文本颜色，box-sizing，下边框*/
+	color:#333;
+	box-sizing:border-box;
+	border-bottom:3px solid #0aa1ed;
+}
+/*规格参数*/
+#param{
+	margin-top:15px;
+}
+#param>p{
+	height:26px;
+	line-height:26px;
+	font-size:16px;
+	color:#808080;
+	font-weight:bold;
+	font-family:simhei;
+}
+#param>ul{
+	display:flex;
+	flex-wrap:wrap;
+}
+#param>ul>li{
+	width:33.3%;
+	font:14px "microsoft yahei";
+	line-height:2;
+}
+
+/*加入购物车*/
+#addCart>li:first-child{
+	margin-bottom:50px;
+}
+#addCart>li+li{
+	/*高度，行高，背景，内边距，倒角，边框阴影*/
+	height:26px;
+	line-height:26px;
+	background:#e8e8e8;
+	padding:10px 20px;
+	border-radius:3px;
+	box-shadow:1px 2px 3px #ccc;
+	/*下外边距*/
+	margin-bottom:10px;
+}
+#addCart>li+li>a{
+	font-size:16px;
+	color:#828282;
+}
+
+
+

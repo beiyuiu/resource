@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #welcome{
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+   <div id="welcome">
+     <a href="02_login.html">请登录</a>
+     <h1>首页</h1>
+   </div>
+   <script>
+     //判断登录成功条件sessionStorage是否存储了用户
+     //有用户名登录成功，没有登录失败
+     var n = sessionStorage.getItem("loginName");
+     if(n){
+      welcome.innerHTML = `
+         欢迎回来:${n} <a href="03_logout.html">退出登录</a>
+      `;
+     }
+   </script>
+</body>
+</html>

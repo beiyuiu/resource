@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		//1、弹出输入框，请用户输入金额
+		var input = window.prompt("请输入一个金额:");
+		//2、将输入的金额 + 10,打印结果
+		/*input = input + 10;
+		console.log(input);*/
+		//3、注释步骤2，使用typeof检查步骤1的输入数据
+		console.log(typeof(input));
+		//4、将步骤一输入的数据转换为一个数字，再执行步骤2
+		input=Number(input);//将 input 转换为 数字，再保存给 input
+		input=input+10;//将 input + 10 后的结果，再保存给input
+		console.log(input);
+	</script>
+ </body>
+</html>

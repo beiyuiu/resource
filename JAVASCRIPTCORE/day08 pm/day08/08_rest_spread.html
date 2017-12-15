@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+//if(!("bind" in Function.prototype))
+  Function.prototype.bind=function(obj,...args){
+    console.log("调用自定义的bind");
+    var fun=this;
+    //args本来就不包含obj，且是纯正的数组！
+    return function(...sals){
+      fun.call(obj,...args.concat(sals));
+    }
+  }
+  function calc(base,bonus1,bonus2){
+    console.log(this.ename+"的总工资是"+(
+      base+bonus1+bonus2
+    ));
+  }
+  var lilei={ename:"Li Lei"};
+  var lilei_calc=calc.bind(lilei,10000);
+  lilei_calc(2000,3000);
+
+  var arr=[3,7,6];
+  console.log(
+    Math.max(...arr),
+    //Math.max.apply(null,arr),
+    Math.min(...arr)
+    //Math.min.apply(null,arr)
+  );
+  </script>
+ </body>
+</html>

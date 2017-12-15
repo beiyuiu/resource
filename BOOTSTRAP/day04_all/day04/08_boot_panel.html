@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+  <style>
+  </style>
+</head>
+<body>
+<!--内容-->
+<div class="container">
+ <h1>组件--画板</h1>
+  <div class="panel panel-danger">
+    <div class="panel-heading">面板头部</div>
+    <div class="panel-body">面板主体</div>
+    <div class="panel-footer">面板尾部</div>
+  </div>
+
+  <h4>展开/收起目标对象</h4>
+<a href="#my-target" data-toggle="collapse">展开/收起</a>
+<button data-target="#my-target"  data-toggle="collapse">展开/收起</button>
+
+  <div id="my-target" class="collapse in">
+    <ul>
+      <li>js</li>
+      <li>css</li>
+      <li>html5</li>
+    </ul>
+  </div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<!--检测工具 bootstrap 样式结构-->
+<script src="js/bootlint.js"></script>
+<script>
+  bootlint.showLintReportForCurrentDocument([]);
+</script>
+</body>
+</html>

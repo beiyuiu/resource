@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		/**
+		 * 在控制台上打印 10 句 Hello World
+		 */
+		function print10Hello(){
+			//1、循环条件 ：从 0 开始 ，到 9 结束
+			var i = 0;
+			while(i<=9999){
+				//2、循环操作 ：console.log("Hello World");
+				console.log("第"+(i+1)+"句 你好 世界");
+				//更新循环变量，以便让循环能够结束,否则就是 死循环
+				i++;
+			}
+		}
+	</script>
+	<button onclick="print10Hello()">输入10句Hello World</button>
+ </body>
+</html>

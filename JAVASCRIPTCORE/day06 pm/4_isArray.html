@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    //如果Array构造函数上没有isArray
+if(typeof Array.isArray !== "function")
+  //向Array构造函数上添加isArray,一个参数obj
+  Array.isArray=function(obj){
+    //让obj，强行借用Object.prototype.toString，用输出结果和"[object Array]"做比较，返回比较结果
+    return Object.prototype.toString.call(obj)=="[object Array]";
+  }
+
+    var obj1=[],obj2={},obj3=new Date(),obj4={};
+        obj4.__proto__=obj1;
+    document.write(
+      Array.isArray(obj1)+"<br>"+
+      Array.isArray(obj2)+"<br>"+
+      Array.isArray(obj3)+"<br>"+
+      Array.isArray(obj4)+"<br>"
+    );
+  </script>
+ </body>
+</html>

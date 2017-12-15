@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<!-- 引入 common.js -->
+	<script src="common.js"></script>
+	<script>
+		function showUname(){
+			//1、获取 uname 的值，保存在 value中
+			var value = $("uname").value;
+			//2、将 value 外拼 <h1> 设置给 show 的值
+			var show = $("show");
+			show.innerHTML = "<h1>"+value+"</h1>";
+		}
+		/**精简版*/
+		function showUnameSimp(){
+			$("show").innerHTML="<h1>"+$("uname").value+"</h1>";
+		}
+	</script>	
+ </head>
+ <body>
+  <div id="show"></div>
+	<input type="text" id="uname">
+	<button onclick="showUnameSimp()">显示</button>
+ </body>
+</html>

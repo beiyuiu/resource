@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    function Student(sname,sage){
+      this.sname=sname;
+      this.sage=sage;
+      this.intr=function(){
+        console.log(
+          "I'm "+this.sname+", I'm "+this.sage);
+      }
+    }
+    var lilei=new Student("Li Lei",11);
+    var hmm=new Student("Han meimei",12);
+    console.log(lilei);
+    console.log(hmm);
+    lilei.intr();
+    hmm.intr();
+  </script>
+ </body>
+</html>

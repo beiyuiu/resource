@@ -1,0 +1,46 @@
+如果确认代码的编写是没错的，建议去重启开发服务器
+
+1、模板中标签写错了
+(SystemJS) Template parse errors:↵	Unexpected closing tag "dem01" ("<h1>Hello {{name}}</h1>↵	  <demo01>[ERROR ->]</dem01>↵	
+
+2、不允许在组件的模板中 调用自己
+./Demo01Component class Demo01Component - inline template:1:6 caused by: Maximum call stack size exceeded
+
+3、如果组件没有声明，是不可以直接使用的；到模块中去声明
+zone.js:522 Unhandled Promise rejection: Template parse errors:
+'demo01' is not a known element:
+1. If 'demo01' is an Angular component, then verify that it is part of this module.
+2. If 'demo01' is a Web Component then add "CUSTOM_ELEMENTS_SCHEMA" to the '@NgModule.schemas' of this component to suppress this message. ("<h1>Hello {{name}}</h1>
+  [ERROR ->]<demo01></demo01>
+
+  4、闭合问题
+  (SystemJS) Template parse errors:↵	Only void and foreign elements can be self closed "demo02" ("↵	  <demo02>[ERROR ->]<demo02/>↵	  "): AppComponent@1:10↵	Error: Template parse errors:↵	Only void and foreign elements can be self closed "demo02" ("↵	  <demo02>[ERROR ->]<demo02/>↵	  "
+
+  5、所创建的类一定要通过装饰器去装饰成组件、服务、指令、管道、模块....
+
+   Unexpected value 'Demo03Component' declared by the module 'AppModule'↵	
+
+6、组件指定模板内容时 要保证路径是正确的
+zone.js:522 Unhandled Promise rejection: Failed to load demo04.component.html ; Zone: <root> ; Task: Promise.then ; Value: Failed to load demo04.component.html 
+
+7、在接收参数时，只需要在参数指定类型为any
+src/app/demo14/demo14.component.ts(21,38): error TS2339: Property '
+uName' does not exist on type '{ [key: string]: any; }'.
+
+8、因为没有成功的启动开发器，解决问题，重新跑起来
+zone.js:2019 GET http://localhost:3000/browser-sync/socket.io/?EIO=3&transport=polling&t=L-bLVWw net::ERR_CONNECTION_REFUSED
+
+9、服务没有指定提供商 或者 要用到的某些东西不在依赖的范围内
+DI:Denpendency Injection 依赖注入
+
+core.umd.js:3064 EXCEPTION: Uncaught (in promise): Error: DI Error
+Error: DI Error
+    at NoProviderError.ZoneAwareEr
+
+10、跨域
+Failed to load http://localhost/ajia_code/data/user/session_data.php: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:3000' is therefore not allowed access.
+
+11、读取title属性时，对象本身就是undefined
+解决方案：就是找title是在哪调用的，被调用的对象指定是赋值失败
+
+Cannot read property 'title' of undefined

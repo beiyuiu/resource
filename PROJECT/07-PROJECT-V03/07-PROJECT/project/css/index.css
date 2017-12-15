@@ -1,0 +1,153 @@
+#banner img{
+		width:960px;
+	}
+#banner{
+			width:960px;
+			height:384px;
+			overflow:hidden;
+			/*相对定位：配合 a.ck-slide做绝对定位*/
+			position:relative;
+}
+#banner ul.banner-img li{
+			float:left;
+}
+		
+/*左右方向按钮的相同的样式*/
+#banner a.ck-slide{
+			/*绝对定位,宽度，高度，倒角，背景颜色，透明度，上偏移距离*/
+			position:absolute;
+			width:35px;
+			height:70px;
+			border-radius:5px;
+			background:#000;
+			opacity:0.3;
+			top:157px;
+			transition:all .1s;
+}
+
+
+/*2017-9-8 增加的内容 ：过渡效果*/
+#banner a.ck-slide:hover{
+	opacity:0.5;
+}
+
+
+#banner a.ck-left{
+			/*左偏移距离，背景图*/
+			left:5px;
+			background:#000 url(../img/index/arrow-left.png) no-repeat center center;
+}
+#banner a.ck-right{
+			/*右偏移距离，背景图*/
+			right:5px;
+			background:#000 url(../img/index/arrow-right.png) no-repeat center center;
+}
+
+#banner ul.indicators{
+			position:absolute;
+			bottom:30px;
+			left:450px;
+}
+
+#banner ul.indicators li{
+			/*宽度，高度，倒角，背景颜色，右外边距，左浮动*/
+			width:10px;
+			height:10px;
+			border-radius:50%;
+			background:#fff;
+			margin-right:5px;
+			float:left;
+			cursor:pointer;
+}
+
+
+/******1F,2F,3F的样式*******/
+div.floor-content>div{
+			background:#e8e8e8;
+			margin-bottom:10px;
+			position:relative;
+		}
+
+		div.floor-content>div:nth-child(1){
+			width:610px;
+			height:370px;
+		}
+
+		div.floor-content>div:nth-child(2){
+			width:340px;
+			height:370px;
+		}
+
+		div.floor-content>div:nth-child(3){
+			width:360px;
+			height:230px;
+		}
+
+		div.floor-content>div.product{
+			width:190px;
+			height:230px;
+		}
+
+		div.floor-content{
+			/*变为弹性布局的容器*/
+			display:flex;
+			/*排列不下时允许换行*/
+			flex-wrap:wrap;
+			/*设置项目们的排列方式为两端对齐*/
+			justify-content:space-between;
+		}
+
+		/*具体的显示效果*/
+		div.floor-content p.name{
+			font-size:32px;
+			color:#333;
+		}
+		div.floor-content p.details{
+			font-size:12px;
+			margin-bottom:25px;
+			color:#666;
+		}
+		div.floor-content p.price{
+			font-size:24px;
+			color:#0aa1ed;
+			margin-bottom:12px;
+		}
+		div.floor-content a.view{
+			/*块级元素，宽度，高度，行高，水平居中对齐，倒角，背景颜色，文本颜色，文字大小，取消下划线*/
+			display:block;
+			width:130px;
+			height:40px;
+			line-height:40px;
+			text-align:center;
+			border-radius:2px;
+			background:linear-gradient(to bottom,#27B1F6,#0aa1ed);
+			color:#fff;
+			font-size:16px;
+			text-decoration:none;
+		}
+		div.floor-content div.desc{
+			position:absolute;
+			top:55px;
+			left:60px;
+			width:245px;
+		}
+		/*修改第一块区域中的图像*/
+		div.floor-content>div:nth-child(1) img{
+			position:absolute;
+			right:55px;
+			top:35px;
+		}
+
+div.floor-top{
+	/*文本：大小，加粗*/
+	font-size:24px;
+	font-weight:bold;
+	/*上外边距，下外边距，下边框*/
+	margin:10px 0 10px 0;
+	border-bottom:2px solid #D9D9D9;
+	/*背景图像*/
+	background:url(../img/index/computer_icon.png) no-repeat left center;
+	/*左内边距*/
+	padding-left:50px;
+	padding-bottom:5px;
+}

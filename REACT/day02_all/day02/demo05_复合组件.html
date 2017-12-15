@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+
+  //在React的核心思想：组件化
+  var MyHeader = React.createClass({
+    render:function(){
+      return <h1>这是页头</h1>
+    }
+  });
+
+  var MyFooter = React.createClass({
+    render:function(){
+      return <h1>这是页脚</h1>
+    }
+  })
+
+  var MyContent = React.createClass({
+    render: function () {
+      return <p>这是正文</p>
+    }
+  })
+
+  var MyIndex = React.createClass({
+    render:function() {
+      return <div>
+            <MyHeader></MyHeader>
+            <MyContent></MyContent>
+            <MyFooter></MyFooter>
+          </div>
+    }
+  })
+
+
+  ReactDOM.render(
+      <MyIndex></MyIndex>,
+      document.getElementById('example')
+  );
+
+</script>
+
+
+</body>
+</html>

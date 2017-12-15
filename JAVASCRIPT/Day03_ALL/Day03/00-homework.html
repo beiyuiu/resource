@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		//1、从弹框中录入一个数字表示工资，并保存在 salary 变量中
+		var salary = prompt("请输入您的工资:");
+		//2、判断 salary 是否在 20000以上，给出提示 "高工资"
+		salary >= 20000 && console.log("高工资");
+		//3、判断 salary 是否在 8000 ~ 20000 ,给出提示 "中高工资"
+		(salary>=8000 && salary<20000) && console.log("中高工资");
+		//4、判断 salary 是否在 8000 以下，给出提示 "普通工资"
+		salary < 8000 && console.log("普通工资");
+	</script>  
+ </body>
+</html>

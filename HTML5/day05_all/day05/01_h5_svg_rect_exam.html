@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    svg{background: #ddd;}
+  </style>
+</head>
+<body>
+     <h1>svg事件监听绑定</h1>
+     <svg id="s2" width="500" height="400">
+       <rect id="r2" width="30" height="300"
+           x="235" y="50" fill="#faa" fill-opacity="0.3" stroke="#800" stroke-opacity="0.3"></rect>
+     </svg>
+     <script>
+       r2.onmousemove = function(){
+         this.setAttribute("fill-opacity",1);
+         this.setAttribute("stroke-opacity",1);
+       }
+       r2.onmouseout = function(){
+         this.setAttribute("fill-opacity",0.3);
+         this.setAttribute("stroke-opacity",0.3);
+       }
+       //11:38--11:42
+       //一个柱子：定时器修改高度1---300
+     </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		/**
+		 * 将十进制的数字转换为二进制并返回
+		 * 参数 ：num ，待转换的十进制数字
+		 * 返回 ：转换后的二进制结果
+		 */
+		function decode2Bin(num){
+			//1、声明一个数组 stack ,用于保存每次计算出来的余数
+			var stack = [];
+			/*
+			  2、循环操作
+					2.1 循环条件 ：当num>0的时候，继续循环
+					2.2 循环操作 ：
+						2.2.1 先计算 num % 2 的值，并保存进stack中
+						2.2.2 将 num / 2的结果取整再赋值给 num
+			*/
+			while(num > 0){
+				var r = num % 2;
+				stack.push(r);
+				num=parseInt(num / 2);
+			}
+			//3、将 stack 反转并拼成字符串，再返回
+			return stack.reverse().join("");
+		}
+
+		function testDecode(){
+			var num = parseInt(prompt("请输入一个数字"));
+			var result = decode2Bin(num);
+			console.log(num+"--->"+result);
+		}
+		
+		/**
+		 * 显示 省市级联 效果
+		 */
+		function showCity(){
+			//1、定义一个一维数组，保存几个省份信息
+			var province = ["黑龙江","吉林","辽宁"];
+			//2、定义一个二维数组，保存省份对应的城市信息
+			var city = [
+				["哈尔滨","齐齐哈尔","牡丹江"],
+				["长春","吉林","四平"],
+				["沈阳","大连","鞍山"]
+			];
+			//3、提供弹框，让用户输入省份名称
+			var input = prompt("请输入一个省份名称:");
+			//4、查找 输入的省份名称 是否在数组中存在(查找算法),存在的话获取下标，并且到二维数组中获取对应的城市信息。如果不存在，给出提示
+			var index = -1;
+			for(var i=0;i<province.length;i++){
+				if(province[i] == input){
+					index = i;
+					break;
+				}
+			}
+
+			//判断是否有输入的省份
+			if(index == -1){
+				alert("没找到您要查找的省份");
+			}else{
+				console.log(city[index]);
+			}
+		}
+	</script>
+	<button onclick="testDecode()">十进制转二进制</button>
+	<button onclick="showCity()">显示省市级联</button>
+ </body>
+</html>

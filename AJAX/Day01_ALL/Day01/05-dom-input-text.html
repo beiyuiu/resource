@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<script>
+		/**获取 id 为 uname 的文本框的值*/
+		function getUnameValue(){
+			//1、根据ID获取页面元素
+			var uname=document.getElementById("uname");
+			//2、通过 value 属性获取 元素的值
+			console.log(uname.value);
+		}
+		
+		/**设置 id为 uname 的元素的值*/
+		function setUnameValue(){
+			//1、获取 uname 元素
+			var uname = document.getElementById("uname");
+			//2、设置其 value 属性值
+			uname.value = "请输入用户名称";
+		}
+	</script>
+ </head>
+ <body>
+  <input type="text" id="uname">
+	<button onclick="getUnameValue()">获取uname的值</button>
+	<button onclick="setUnameValue()">设置uname的值</button>
+ </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function $(id){
+			return document.getElementById(id);
+		}
+		function showText(){
+			//1、获取 id 为 d1 的元素 保存在 elem中
+			var elem = $("d1");
+			//2、获取 elem 的值，并打印在控制台上
+			console.log(elem.innerHTML);
+		}
+		function setText(){
+			$("d1").innerHTML = "我的第一个$";
+		}
+	</script>
+	<div id="d1">Hello World</div>
+	<button onclick="showText()">获取 d1 的值</button>
+	<button onclick="setText()">设置 d1 的值</button>
+ </body>
+</html>

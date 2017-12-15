@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<!--view-->
+<div id="app">
+    {{msg}}
+    <br/>
+    <h4 v-show="isShow">{{msg}}</h4>
+    <h4 v-if="isShow">{{msg}}</h4>
+  <ul>
+    <li v-for="(item,idx) in list">
+      {{item.name}}:{{item.age}}
+    </li>
+  </ul>
+  <input type="text" v-model="msg"/>
+  <br/>
+  <button @click="setData">点击事件</button>
+  <br />
+  <input type="text" @keydown.enter="setData"/>
+  <input type="text" @keydown.13="setData"/>
+
+</div>
+<script src="js/vue.js"></script>
+<script>
+  //1:数据model
+  var exampleData = {
+     msg:"hello vue",
+     isShow:false,
+     list:[
+       {name:"tom",age:19},
+       {name:"jerry",age:21},
+       {name:"kaka",age:22}]
+  }
+  //2:viewmodel
+  new Vue({
+    el:"#app",    //挂载点
+    data:exampleData,
+    methods:{
+      setData:function(){
+        this.msg = "";
+      }
+    }
+  });
+</script>
+</body>
+</html>

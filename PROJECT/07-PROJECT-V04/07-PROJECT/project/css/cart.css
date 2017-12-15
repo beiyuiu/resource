@@ -1,0 +1,32 @@
+#shopping-cart>div.title{
+	display:flex;
+	justify-content:space-between;
+	font-size:14px;
+}
+#shopping-cart>div.title>b{
+	font:18px "microsoft yahei";
+	color:#333;
+}
+#shopping-cart>div.title .color{
+	color:#0aa1ed;
+	font-weight:bold;
+}
+
+#box>.imfor-top{
+	/*高度，行高，下外边距，上边框，渐变背景，边框阴影，文本颜色, 文本水平居中对齐*/
+	height:35px;
+	line-height:35px;
+	margin:10px 0;
+	border-top:1px solid #ccc;
+	background:linear-gradient(to bottom,#F4F3F4,#e6e6e5);
+	box-shadow:3px 3px 6px #ccc;
+	color:#808080;
+	text-align:center;
+	/*更改为弹性布局的容器*/
+	display:flex;
+}
+#box div.imfor-top img{
+	position:relative;
+	bottom:12px;
+	cursor:pointer;
+}

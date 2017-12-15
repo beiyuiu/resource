@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#container{
+			/*宽度，高度(最小)，边框，内边距，box-sizing*/
+			width:900px;
+			min-height:150px;
+			border:1px solid #D0E4C2;
+			padding:10px;
+			box-sizing:border-box;
+		}
+
+		#page>a{
+			/*边框，倒角，内边距 */
+			border:1px solid #ccc;
+			border-radius:5px;
+			padding:3px 10px;
+		}
+
+		#page>.active{
+			border:none;
+		}
+	</style>
+ </head>
+ <body>
+  <div id="container">
+		
+	</div>
+	<p id="page">
+		<a class="active">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+		<a href="#">6</a>
+	</p>
+ </body>
+</html>

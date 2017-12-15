@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>CSS类内部Hack</title>
+	<style>
+		#d1{
+			width:200px;
+			height:200px;
+			background-color:red;
+
+			background-color:pink\0;/*在IE8，9，10*/
+			background-color:orange\9\0;/*在IE9，10*/
+
+
+			+background-color:green;/*在IE6，7中背景色为green色*/
+			-background-color:blue;/*在IE6中背景颜色为blue色*/
+			
+		}
+	</style>
+ </head>
+ <body>
+  <div id="d1"></div>
+ </body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<script src="common.js"></script>
+	<script>
+		function checkUname(){
+			//1、获取 uname 的值
+			var uname = $("uname").value;
+			//2、根据 uname 的值 给出相应的提示，显示在 uname-show中
+			if(uname == ""){
+				$("uname-show").innerHTML="用户名不能为空";
+			}else{
+				$("uname-show").innerHTML="通过";
+			}
+		}
+	</script>	
+ </head>
+ <body>
+  <input type="text" id="uname" onblur="checkUname()">
+	<span id="uname-show">*</span>
+ </body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		function showYear(){
+			var year = prompt("Year:");
+			if(year%4==0&&year%100!=0||year%400==0){
+				console.log(year+"年是闰年");
+			}else{
+				console.log(year+"年不是闰年");
+			}
+		}
+	</script>  
+	<button onclick="showYear()">测试闰年</button>
+ </body>
+</html>

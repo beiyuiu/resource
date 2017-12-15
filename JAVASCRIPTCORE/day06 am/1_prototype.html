@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    function Student(sname,sage){
+      this.sname=sname;
+      this.sage=sage;
+    }
+    Student.prototype={
+      intr(){
+        console.log(
+          "I'm "+this.sname+", I'm "+this.sage);
+      },
+      className:"初一2班"
+    };
+    var lilei=new Student("Li Lei",11);
+    var hmm=new Student("Han meimei",12);
+    console.log(lilei);
+    console.log(hmm);
+    console.log(lilei.__proto__==hmm.__proto__);
+    lilei.intr();
+    hmm.intr();
+    console.log(lilei.className,hmm.className);
+    Student.prototype.className="初二2班";
+    console.log(lilei.className,hmm.className);
+    console.log(
+      lilei.hasOwnProperty("sname"),//true
+      lilei.hasOwnProperty("className")//false
+    );
+  </script>
+ </body>
+</html>

@@ -1,0 +1,49 @@
+
+1、准备开发环境
+①启动apache和mysql
+②所有的服务器端php文件修改 
+php中设置：
+header('Access-Control-Allow-Origin:http://localhost:8100');
+header('Access-Control-Allow-Credentials:true');
+
+客户端请求时设置：
+this.http.get(myUrl, { withCredentials: true }).map((response: Response) => response.json());
+
+③新建一个工程将压缩包和nodeModules准备一下，目的是实现在visual studio code中打开终端之后，可以通过ionic serve -l 来启动开发服务器；否则项目就无法进行
+
+2、搭建项目框架
+步骤1 、创建共用服务
+在app目录下创建文件夹utility,
+在utility中创建service文件夹，在该文件夹下创建网络请求服务myhttp.service.ts
+
+步骤2：在pages目录下创建以下page（通过命令行 ionic g page ***）
+
+home 根页面
+index 首页
+detail详情
+cart 购物车
+login登录
+order-confirm 订单确认
+pay 支付
+user-center 用户中心
+not-found
+
+要求：根页面显示4个tab，第一个index，第二个cart ，第三个user-center，第四个not-found
+
+
+用到的字图标
+camera
+chatboxes
+cart
+settings
+person
+home
+heart
+bookmark
+pin
+close
+help
+
+
+
+

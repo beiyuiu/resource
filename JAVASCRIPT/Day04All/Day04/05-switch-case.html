@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script src="isRun.js"></script>
+	<script>
+		function testSwitch(){
+			var num = Number(prompt("请输入1-7之间的一个数字:"));
+			switch(num){
+				case 1:
+					console.log("红烧肉");
+					break;
+				case 2:
+					console.log("红烧排骨");
+					break;
+				case 3:
+					console.log("红烧丸子");
+					break;
+				case 4:
+					console.log("红烧鱼");
+					break;
+				case 5:
+					console.log("烤羊腿");
+					break;
+				case 6:
+				case 7:
+					console.log("休息");
+					break;
+				default:
+					console.log("输入有误!");
+			}
+
+		}
+		/*输入年，月，判断该月有多少天*/
+		function printDay(){
+			var year = Number(prompt("Year:"));
+			var month = Number(prompt("Month:"));
+			switch(month){
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					console.log("有31天");
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					console.log("有30天");
+					break;
+				case 2:
+					if(year%4==0&&year%100!=0||year%400==0){
+						console.log("有29天");
+					}else{
+						console.log("有28天");
+					}
+					break;
+			}
+		}	
+		
+		/*日期计算器：输入年月日，判断该日是该年的第?天*/
+		function calDate(){
+			//1、输入年月日
+			var year = Number(prompt("Year:"));
+			var month = Number(prompt("Month:"));
+			var day = Number(prompt("Day:"));
+			//2、计算从1月开始 到 month-1 月共多少天(从month-1月开始，一直到1月的天数累加)
+			var totalDays = 0;
+			switch(month-1){
+				case 11:
+					totalDays += 30;
+				case 10:
+					totalDays += 31;
+				case 9:
+					totalDays += 30;
+				case 8:
+					totalDays += 31;
+				case 7:
+					totalDays += 31;
+				case 6:
+					totalDays += 30;
+				case 5:
+					totalDays += 31;
+				case 4:
+					totalDays += 30;
+				case 3:
+					totalDays += 31;
+				case 2:
+					if(isRun(year)){
+						totalDays += 29;
+					}else{
+						totalDays += 28;
+					}
+				case 1:
+					totalDays += 31;
+					break;
+			}
+			//3、将用户输入的day累加到totalDays的后面
+			totalDays += day;
+			console.log("是第"+totalDays+"天");
+		}
+	</script>  
+	<button onclick="testSwitch()">测试switch</button>
+	<button onclick="printDay()">年月判断</button>
+	<button onclick="calDate()">日期计算器</button>
+ </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <button>按钮一</button>
+  <button>按钮二</button>
+  <p id="result"></p>
+  <!--<script src="1.js"></script>-->
+  <script>
+    var w = new Worker("1.js");
+    //17:27--17:29
+    w.onmessage = function(e){
+      result.innerHTML =  e.data;
+    }
+    //UI->Worker
+    w.postMessage("计算算值");
+
+  </script>
+
+</body>
+</html>

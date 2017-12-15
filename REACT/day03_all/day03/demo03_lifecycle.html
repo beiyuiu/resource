@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+  //alt + f2
+  var TestLifeCycle = React.createClass({
+    getInitialState: function () {
+        return {userInput:''}
+    },
+    componentWillMount: function () {
+      console.log('组件准备去挂载');
+      console.log(this.refs.myInput);
+    },
+    componentDidMount: function () {
+      console.log('组件已经挂载完毕');
+      console.log(this.refs.myInput);
+    },
+    componentWillUpdate:
+        function (nextProps,nextState) {
+          console.log('nextState',nextState);
+    },
+    componentDidUpdate:
+        function (prevProps,prevState) {
+          console.log('prevState',prevState);
+    },
+    handleChange: function () {
+        this.setState(
+            {
+              userInput:
+                  this.refs.myInput.value
+            });
+    },
+    render: function () {
+      return <div>
+              <input
+              onChange={this.handleChange}
+              ref="myInput" type="text"/>
+              <button>clickeMe</button>
+            </div>
+    }
+  })
+
+  ReactDOM.render(
+      <TestLifeCycle/>,
+      document.getElementById('example')
+  );
+
+</script>
+
+
+</body>
+</html>

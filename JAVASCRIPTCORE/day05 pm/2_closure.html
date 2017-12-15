@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    //Step1:外层函数包裹要保护的变量和内层函数
+    function factory(){
+      var i=1;
+      //Step2: 外层函数返回内层函数
+      return function(){
+        console.log(i++);
+      }
+    }
+    //Step3: 调用者调用外层函数获得内层函数对象
+    var icbc=factory();
+    //getNum:function(){ console.log(i++); }
+    //按理说: outer中的i本该释放！
+    //结果: 即使反复调用内层函数，局部变量i也不释放
+    icbc();
+    icbc();
+    i=1;
+    icbc();
+    icbc();
+
+    var abc=factory();
+    abc();//1
+    abc();//2
+    abc();//3
+    abc();//4
+  </script>
+ </body>
+</html>

@@ -1,0 +1,18 @@
+学子商城项目：
+	1、首页 ：http://www.codeboy.com/index.html
+	2、商品列表页：http://www.codeboy.com/products.html?kw=%E7%AC%94%E8%AE%B0%E6%9C%AC
+	3、商品详情页：http://www.codeboy.com/product_details.html?lid=28
+	4、购物车页：http://www.codeboy.com/cart.html
+
+1、制作通用的css样式表，提供给各个页面使用
+2、整理 01-header.html 以及 02-footer.html
+3、创建 03-index.html 使用 <iframe> 将01-header.html  以及 02-footer.html 引入进来，并调整(10分钟)
+4、整合 Day05/00-homework-index.html 中的内容 到项目 03-index.html中
+	将 HTML 赋值到 03-index对应位置处
+	将 CSS 赋值到 index.css文件中
+	在 03-index.html 中 引用 index.css
+5、为 banner 广告左右方向按钮 增加过渡效果
+
+
+
+

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function print99(){
+			var num = Number(prompt("请输入打印的函数:"));
+			var print="";
+			for(var i=1;i<=num;i++){
+				var msg = i+"*"+num+"="+(i*num);
+				print += (msg + "\t");
+			}
+			console.log(print);
+		}
+		
+		/**
+		 * 打印 1 + 1/3 + ... 1/999 的和
+		 */
+		function printSum(){
+			var sum = 0;
+			//循环：从1开始，到999结束，按奇数方式递增
+			for(var i=1;i<=999;i+=2){
+				sum += 1/i;
+			}
+			console.log("和为:"+sum);
+		}
+
+		/*判断指定数字是否为素数*/
+		function isSu(){
+			var num = Number(prompt("请输入一个数字:"));
+			//通过循环，判断 num 是否为素数
+			//条件：从 2 开始 ， 到 num - 1 结束
+			//操作：判断 num 能否被 条件变量整除
+			var su = true;//作为判断是否为素数的标识，默认为true，即默认为是素数
+			for(var i=2;i<num;i++){
+				if(num % i == 0){
+					su = false; // 不是素数时，将 su 该为false
+					break;
+				}
+			}
+			//根据 su 变量的值给出相应的提示
+			if(su){
+				console.log("是素数");
+			}else{
+				console.log("不是素数");
+			}
+		}
+		
+		/**
+		 * 打印 菲波那切数列中的前10个数
+		 */
+		function printFib(){
+			//1、先声明两个数字，n1 和 n2 ，分别赋值为1
+			var n1 = 1 , n2 = 1;
+			//2、将 n1 和 n2 的值打印输出
+			console.log(n1);
+			console.log(n2);
+			//3、通过 n1 和 n2 计算第三个 数字，赋值给 n1，再通过 n1 和 n2 计算第四个数字，赋值给 n2，打印输出 n1 和 n2 ；再通过 n1 和 n2 计算第五个数字，赋值给n1，再通过 n1 和 n2 计算第六个数字，赋值给 n2 ，打印输出 n1 和 n2 ; ... ...
+			for(var i = 1;i<=9 ; i ++){
+				//将 n1 和 n2 相加 赋值给 n1 ，表示 第3,5,7,9 个数
+				n1=n1 + n2;
+				console.log(n1);
+				//将 n1(新) 和 n2 相加，赋值给n2，表示 第4,6,8,10个数
+				n2=n1 + n2;
+				console.log(n2);
+			}
+		}
+	</script>
+	<button onclick="print99()">打印乘法口诀中的任意一行</button>
+	<button onclick="printSum()">打印数列的和</button>
+	<button onclick="isSu()">判断素数</button>
+	<button onclick="printFib()">打印菲波那切数列</button>
+ </body>
+</html>

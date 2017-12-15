@@ -1,0 +1,15 @@
+张众磊
+bjzhangzl@tedu.cn
+
+ng/ionic/react/phonegap/wx..
+
+ng学习安排：
+
+day1:软件设计原则与设计模式 angular概述 angular基础知识
+day2:指令、过滤器
+day3: 路由
+day4: 服务。。。
+
+ionic是一个移动端的框架，是基于angular.
+react(ReactJS+ReactNative)
+phoneGap(cordova)实现混合编程的框架

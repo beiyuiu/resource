@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<script>
+		/**获取页面中id为d1的元素的值*/
+		function getD1Value(){
+			//1、获取页面中id为d1的元素，并保存在 elem 中
+			var elem = document.getElementById("d1");
+			//2、通过 elem 的 innerHTML ，获取标记内的内容
+			console.log(elem.innerHTML);
+		}
+		/**设置页面中id为d1的元素的值为 "这是我的第一个DOM操作"*/
+		function setD1Value(){
+			//1、获取页面中id为d1的元素，并保存在 elem 中
+			var elem = document.getElementById("d1");
+			//2、设置其内容为 "这是我的第一个DOM操作"
+			elem.innerHTML="<h1>这是我的第一个DOM操作</h1>";
+		}
+		/**获取d1的值，简写版*/
+		function getD1ValueSimp(){
+			console.log( document.getElementById("d1").innerHTML );
+		}
+		/**设置d1的值，简写版*/
+		function setD1ValueSimp(){
+			document.getElementById("d1").innerHTML="<h1>这是我的第一个DOM操作</h1>";
+		}
+	</script>
+ </head>
+ <body>
+  <div id="d1">Hello World</div>
+	<button onclick="getD1Value()">获取d1的值</button>
+	<button onclick="setD1Value()">设置d1的值</button>
+	<button onclick="getD1ValueSimp()">获取d1的值(简写版)</button>
+	<button onclick="setD1ValueSimp()">设置d1的值(简写版)</button>
+ </body>
+</html>

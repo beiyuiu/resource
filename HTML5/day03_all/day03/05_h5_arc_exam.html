@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd;}
+  </style>
+</head>
+<body>
+  <h2>CANVAS绘图坐标轴--吃豆子</h2>
+ <canvas id="c2" width="500" height="400">
+   您的浏览器版本太低不能显示canvas，请更新
+ </canvas>
+ <script>
+   //1:获取画布
+   //2:依据画布获取画笔
+   var ctx  = c2.getContext("2d");
+   function closeMouth(){
+     //1:绘制外围轮廓
+     ctx.beginPath();
+     ctx.arc(250,200,100,0,2*Math.PI);
+     ctx.lineTo(250,200);
+     ctx.stroke();
+     //2:填充眼球
+     ctx.beginPath();
+     ctx.arc(250,150,25,0,2*Math.PI);
+     ctx.fillStyle="#38f";
+     ctx.fill();
+     //3:填充眼神光  16:55--17:00
+     ctx.beginPath();
+     ctx.arc(263,135,3,0,2*Math.PI);
+     ctx.fillStyle="#fff";
+     ctx.fill();
+   }
+   function openMouth(){
+     //1:绘制外围轮廓
+     ctx.beginPath();
+     ctx.arc(250,200,100,40*Math.PI/180,325*Math.PI/180);
+     ctx.lineTo(250,200);
+     ctx.closePath();
+     ctx.stroke();
+     //2:填充眼球
+     ctx.beginPath();
+     ctx.arc(250,150,25,0,2*Math.PI);
+     ctx.fillStyle="#38f";
+     ctx.fill();
+     //3:填充眼神光
+     ctx.beginPath();
+     ctx.arc(263,135,3,0,2*Math.PI);
+     ctx.fillStyle="#fff";
+     ctx.fill();
+   }
+   //closeMouth();
+   //openMouth();
+   var idx = 0;
+   var timer = setInterval(function(){
+     ctx.clearRect(0,0,500,400);
+     idx++;
+     if(idx%2==0){
+       openMouth();
+     }else{
+       closeMouth();
+     }
+   },500);
+ </script>
+</body>
+</html>

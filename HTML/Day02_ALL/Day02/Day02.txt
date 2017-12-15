@@ -1,0 +1,248 @@
+1、表格
+	1、表格的作用
+		按照一定的格式来显示数据的
+		表格是由 单元格(列)，行 来组成的
+	2、表格的语法
+		1、标记
+			1、<table></table> : 表示一个表格
+			2、<tr></tr> : 表示表格中的一行
+			3、<td></td> : 表行中的一列(单元格)
+				 <th></th> : 行/列 标题 (加粗，水平居中)
+			4、<caption></caption> : 表格的标题
+				该元素必须添加在 <table>之下，所有的tr之上
+		2、常用属性
+			1、table 
+				1、width
+				2、height
+				3、align
+					设置表格的对齐方式 ， left / center / right
+				4、border
+					边框宽度，取值以 px 为单位的数值
+				5、bgcolor
+				6、cellspacing ：单元格外边距(单元格与单元格 或 单元格与表格之间的距离)
+				7、cellpadding : 单元格内边距(单元格与内容之间的距离)
+			2、tr
+				1、align
+					控制当前行内容的水平对齐方式
+				2、valign
+					控制当前行内容的垂直对齐方式
+					top / middle / bottom
+				3、bgcolor
+			3、td / th
+				1、align
+				2、valign
+				3、width
+				4、height
+				5、colspan ：跨列
+				6、rowspan ：跨行
+			Demo :
+				在 刚才的表格基础上，增加以下内容
+				1、为表格增加边框 1px
+				2、为表格增加尺寸 400 * 400
+				3、为表格增加单元格内边距 5px
+				4、为第四行 增加属性 ，内容水平居中对齐
+	3、表格的复杂应用
+		1、行分组
+			允许将若干行划分到一个组中，以便实现统一管理
+			1、表头行分组
+				允许将第一行的内容单独分到表头行分组中
+				<thead></thead>
+			2、表尾行分组
+				允许将最后一行的内容单独分到表尾行分组中
+				<tfoot></tfoot>
+			3、表主体行分组
+				<tbody></tbody>
+		2、不规则表格创建
+			通过 td 的跨行 和 跨列来实现不规则的表格
+			1、跨列
+				<td colspan="">
+				从指定单元格位置处开始，横向向右，合并掉几个单元格(包含自己),被合并掉的单元格，要删除
+			2、跨行
+				<td rowspan="">
+				从指定单元格位置处开始，纵向向下，合并掉几个单元格(包含自己),被合并掉的单元格，要删除
+		3、表格的嵌套
+			被嵌套的所有的内容，只能放在 td 中
+2、列表
+	1、作用
+		按照一定的格式显示数据
+	2、列表的分类 & 语法
+		1、列表的组成
+			由列表类型 以及 列表项 来组成
+		2、分类 & 语法
+			1、有序列表
+				<ol></ol> --> Order List
+				允许包含若干列表项：
+				<li></li> --> List Item
+			2、无序列表
+				<ul></ul> --> Unorder List
+				允许包含若干列表项：
+				<li></li>
+			3、属性
+				1、ol
+					1、type
+						1 、按数字方式排列,默认值
+						a 、按小写英文方式排列
+						A 、按大写英文方式排列
+						i	、按小写罗马数字排列
+						I 、按大写罗马数字排列
+					2、start
+						指定标识从 几 开始显示
+				2、ul
+					1、type
+						1、disc，实心圆,默认值
+						2、circle，空心圆
+						3、square，实心矩形
+						4、none
+		3、列表的嵌套
+			被嵌套的内容只能放在 li 中
+			
+			Demo : 
+				1、声明一个列表在 html 中(有序)，包含两个列表项，显示 两部小说的名字
+				2、在两个列表项中，再各嵌套一个无序列表，各写3-4个小说中的主角
+	3、定义列表
+		1、作用
+			以一种特殊的结构来排列数据
+			通常用语对一类事物/名词 的解释上面
+		2、语法
+			<dl></dl>：声明一个定义列表
+				<dt></dt>：声明要解释的事物名称 或 名词
+				<dd></dd>：对上述名词或事物解释的内容
+		3、常用场合
+			图文混排
+3、结构标记
+	1、结构标记的作用
+		搭建网页的结构(布局),用于替代 div，最大的优点是提升了标记的"语义性"
+	2、结构标记详解
+		1、<header></header>
+			作用：表示网页 或 某块内容的头部
+		2、<nav></nav>
+			作用：表示网页中的 导航内容
+		3、<section></section>
+			作用：表示网页主体内容中的某一部分
+		4、<article></article>
+			作用：出现在文字描述性比较强的场合:一则新闻，论坛中的帖子，微博信息，博客的信息
+		5、<aside></aside>
+			作用：表示网页中，或某部分内容的 边栏信息
+		6、<footer></footer>
+			作用：表示网页中尾部的信息
+4、表单(难点)
+	1、表单的作用
+		用于收集用户的信息并提交给服务器
+		表单主体是由两部分组成的
+		1、表单元素
+			收集信息，并提交给服务器
+		2、表单控件
+			用于与用户交互的一些元素：文本框，密码框
+	2、表单元素(难点)
+		标记：<form></form>
+		注意：只有放在 <form></form> 里面的表单控件的值，才能提交给服务器
+		属性：
+			1、action
+				提交给服务器处理程序的地址 (动作)
+			2、method
+				提交方式，以什么样的方式把数据交给服务器
+				1、get
+					特点：
+						1、以明文的方式将数据传递给服务器(提交的数据会显示在地址栏上)
+						2、安全性很低
+						3、提交数据最大限制为 2KB
+						4、向服务器要数据时可以使用
+				2、post
+					特点：
+						1、以隐式的方式将数据传递给服务器
+						2、安全性很高
+						3、不限制提交数据的大小
+						4、要提交数据给服务器处理时使用
+				3、... ...
+			3、enctype
+				作用：指定表单数据进行编码的方式
+				取值：
+				1、application/x-www-form-urlencoded
+					默认值，允许将任意类型的文本提交给服务器
+				2、multipart/form-data
+					允许将文件提交给服务器
+				3、text/plain
+					不对任何数据进行编码和传输
+		Demo : 
+			1、创建 05-form.html
+			2、声明一个表单元素 form
+			3、指定提交地址为 login.php,提交方式为 get，编码方式为默认
+	3、表单控件
+		表单元素分类：
+			1、input元素
+			2、textarea 多行文本域
+			3、select 和 option 选项框
+			4、其它元素
+			5、新input元素
+		详解 ：
+			1、input元素
+				里面会包含若干个不同的表单控件
+				标记 ：<input>
+				属性 ：
+					1、type
+						根据不同的type属性值，可以创建不同的input元素
+					2、name
+						定义表单控件的名称，主要提交给服务器使用的
+						注意：如果不声明name属性的话，元素则无法提交给服务器
+					3、value
+						定义当前控件的值，主要提交给服务器使用的
+					4、disabled
+						禁用控件，无值的属性
+						<input disabled>
+
+			2、文本框 与 密码框
+				文本框：<input type="text">
+				密码框：<input type="password">
+
+				具备除以上四个属性外，还具备以下几个独立属性：
+				1、maxlength
+					限制输入的字符数，取值为数字
+				2、readonly
+					只读，无值属性
+					Q : readonly 和 disabled 的区别
+						1、readonly ，是只读的意思，是允许提交给服务器，不让用户改数据而已
+						2、disabled ， 是禁用的意思，不仅不让用户改数据，而且还不能提交给服务器
+				3、placeholder
+					占位符，即默认显示在文本框用于给用户提示的文字
+			3、按钮
+				1、提交按钮
+					作用：将表单提交给服务器
+					标记：<input type="submit" value="显示的文本">
+				2、重置按钮
+					作用：将表单恢复到初始化的状态
+					标记：<input type="reset" value="显示的文本">
+				3、普通按钮
+					作用：通过 JS 自定义功能
+					标记：<input type="button" value="显示的文本">
+				4、<button>显示的内容</button>
+					属性：
+						1、type ：submit / reset / button
+			4、单选按钮 和 复选框
+				单选按钮：<input type="radio">
+				复选框：<input type="checkbox">
+
+				属性：
+					1、name
+						设置名称，并用于分组，一组单选按钮 或 复选框的名称必须相同
+					2、value
+						必须设置
+					3、checked
+						默认被选中，无值属性
+			5、隐藏域 和 文件选择框
+				1、隐藏域
+					<input type="hidden" name="" value="">
+					想提交给服务器，但不想给用户看的数据，可以放在隐藏域中
+				2、文件选择框
+					<input type="file" name="">
+					注意：
+						1、form的 method 属性值必须为 post
+						2、form的 enctype属性值必须为 multipart/form-data
+
+
+		
+
+http://localhost/02-HTML/Day02/login.php?uname=wenhua.li&upwd=bingbing
+
+http://localhost/02-HTML/Day02/login.php?uname=wenhua.li&upwd=fengjie&gender=1&question=0&question=1&question=2&question=3
+
+http://localhost/02-HTML/Day02/login.php?uname=wenhua.li&upwd=fdsafdsafdsa&gender=0&question=0&question=1&question=2&question=3&uid=10000567789

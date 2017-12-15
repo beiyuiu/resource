@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    function Student(sname,sage){
+      this.sname=sname;
+      this.sage=sage;
+    }
+    Student.prototype={
+      intr(){
+        console.log(
+          "I'm "+this.sname+", I'm "+this.sage);
+      },
+      className:"初一2班",
+      toString(){//重写toString
+        var arr=[];
+        var obj=this;
+        for(var key in obj){//遍历当前对象每个属性
+          if(typeof obj[key]!=="function")
+            arr.push(key+":"+obj[key])
+        }
+        return "{"+arr.join(",")+"}";
+      }
+    };
+    var lilei=new Student("Li Lei",11);
+    var hmm=new Student("Han meimei",12);
+    console.log(lilei);
+    console.log(hmm);
+    console.log(lilei.__proto__==hmm.__proto__);
+    lilei.intr();
+    hmm.intr();
+    console.log(lilei.className,hmm.className);
+    Student.prototype.className="初二2班";
+    console.log(lilei.className,hmm.className);
+    console.log(
+      lilei.hasOwnProperty("sname"),//true
+      lilei.hasOwnProperty("className")//false
+    );
+    console.log(lilei.toString());
+    console.log(hmm.toString());
+  </script>
+ </body>
+</html>

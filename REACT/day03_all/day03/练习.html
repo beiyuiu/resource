@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+  //希望在MyInputComponent中的input标签内容发生变化
+  //时，能够将输入框的值保存在MyMainComponent中
+  //①先去得到输入框的值 ②实现子与父的通信
+  var MyInputComponent = React.createClass({
+    handleChange: function () {
+       // this.refs.myInput.value
+      this.props.funcSave(this.refs.myInput.value);
+    },
+    render: function () {
+      return <input
+      ref="myInput"
+      onChange={this.handleChange} type="text"/>
+    }
+  })
+
+  var MyButtonComponent = React.createClass({
+    handleClick: function () {
+      //获取父组件中保存的userInput的值
+      var result = this.props.funcGet();
+      alert(result);
+    },
+    render:function(){
+      return <button
+      onClick={this.handleClick} >clickMe</button>
+    }
+  })
+
+  var MyMainComponent = React.createClass({
+    userInput:'',
+    save: function (msg) {
+      this.userInput = msg;
+    },
+    get: function () {
+      return this.userInput;
+    },
+    render: function () {
+      return <div>
+        <MyInputComponent funcSave={this.save}/>
+        <MyButtonComponent funcGet={this.get}/>
+      </div>
+    }
+  })
+
+  ReactDOM.render(
+      <MyMainComponent/>,
+      document.getElementById('example')
+  );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <form action="login.php" method="get">
+		<p>
+			意向工作城市：
+			<select name="city" size="5" multiple>
+				<option value="0">北京市</option>
+				<option value="1">上海市</option>
+				<option value="2">天津市</option>
+				<option value="3">重庆市</option>
+			</select>
+		</p>
+		<p>
+			<input type="checkbox" id="agree">
+			<label for="agree">我已同意以上条款</label>
+		</p>
+		<p>
+			用户邮箱:
+			<input type="email" name="uemail">
+		</p>
+
+
+		<p>
+			用户年龄：
+			<input type="number" min="18" max="70" step="5">
+		</p>
+		<p>
+			选取范围：
+			<input type="range" min="0" max="100" value="50">
+		</p>
+		<p>
+			日期选择：
+			<input type="date">
+			<input type="week">
+			<input type="month">
+		</p>
+
+
+
+
+
+
+		<p>
+			<input type="submit" value="提交">
+		</p>
+		
+	</form>
+ </body>
+</html>

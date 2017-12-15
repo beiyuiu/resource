@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    function fun(){
+      var n=999;
+      nAdd=function(){n++;};//没加var，自动在全局创建
+      return function(){
+        console.log(n);
+      }
+    }
+    var get=fun();
+    //因为外层函数只调用了一次，只有一个闭包n=999
+    //两个内层函数共享同一个闭包n
+    //get:function(){ console.log(n=999); }
+    //nAdd:function(){n++;}
+    get();//999
+    nAdd();
+    get();//1000
+
+    function fn(){
+      var arr=[];
+      for(var i=0;i<3;i++){
+        arr[i]=function(){console.log(i);};
+      }//i=3
+      return arr;
+    }//找受保护的变量和内层函数，画简图
+    var funs=fn();
+    //外层函数只调用了一次，所以只有一个闭包
+    /*funs:arr:[(i=3)
+      0:function(){console.log(i);},
+      1:function(){console.log(i);},
+      2:function(){console.log(i);}
+    ]
+    */
+    funs[0]();//3
+    funs[1]();//3
+    funs[2]();//3
+  </script>
+ </body>
+</html>

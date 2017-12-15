@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		function showArray(){
+			var array = ["张无忌","赵敏"];
+			//将第二个元素变为周芷若
+			array[1] = "周芷若";
+			//在 第三个位置处增加一个元素
+			array[2] = "小昭";
+			//在 第六个位置处增加一个元素
+			array[5] = "灭绝师太";
+
+			//打印 array
+			console.log(array);
+
+			//打印 array 的长度
+			console.log("array数组的长度为:"+array.length);
+			//通过 length 属性清空数组内容
+			array.length = 0;
+			console.log("清空数组后：");
+			console.log(array);
+		}
+	</script> 
+	<button onclick="showArray()">打印数组</button>
+ </body>
+</html>

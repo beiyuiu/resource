@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    if(typeof Array.prototype.indexOf !="function")
+      Array.prototype.indexOf=function(elem,fromi){
+        document.write("调用自定义indexOf...<br>");
+        fromi=fromi||0;//默认值
+        //this->将来调用indexOf的.前的子对象
+        var arr=this;
+        for(var i=fromi;i<arr.length;i++){
+          if(arr[i]===elem) return i;
+        }
+        return -1;
+      }
+
+    var nums=[1,2,3,4,3,2,1];
+    document.write(
+      nums.indexOf(3)+"<br>"+  //2
+      nums.indexOf(3,3)+"<br>"+//4
+      nums.indexOf(3,5)+"<br>"+//-1
+      nums.indexOf(5)+"<br>"   //-1
+    );
+    
+    //如果String的原型对象中没有trim函数
+    if(typeof String.prototype.trim!="function")
+      //为String的原型对象添加trim函数
+      String.prototype.trim=function(){
+        //返回: 当前字符串删除开头的空字符和结尾的空字符的结果
+        return this.replace(/^\s+|\s+$/g,"");
+      }
+
+    var str="    zhang    dong     ";
+    str=str.trim();//去掉开头和结尾的空字符
+    document.write(str.replace(/\s/g,"&nbsp;"));
+  </script>
+ </body>
+</html>

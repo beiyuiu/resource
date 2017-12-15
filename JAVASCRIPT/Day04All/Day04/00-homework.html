@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		/**
+		 * 求 菲波那切数列中第 n 个数字的值
+		 * 边界条件：n == 1 || n == 2
+		 */
+		function f(n){
+			if(n <= 0){
+				console.log("错误数字");
+				return;
+			}
+
+			if( n < 3){
+				return 1;
+			}else{
+				return f(n-1)+f(n-2);
+			}
+		}
+
+		console.log(f(10));
+	</script>
+ </body>
+</html>

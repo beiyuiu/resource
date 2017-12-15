@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		/*
+		 分别使用两种不同的方式创建数组
+		*/
+		function createArray(){
+			var arr1 = ["张三丰","张翠山","张无忌"];
+			var arr2 = new Array("金花婆婆","殷素素","赵敏");
+
+			console.log(arr1);
+			console.log(arr2);
+		}
+		
+		/**
+		 * 基本数据类型
+		 */
+		function changeNum(){
+			var num1 = 10;
+			var num2 = num1;
+			num2 = 1000;
+			console.log("num1:"+num1);
+			console.log("num2:"+num2);
+		}
+		/**引用数据类型的赋值*/
+		function changeArray(){
+			var arr1 = ["张无忌","赵敏"];
+			var arr2 = arr1;
+			arr2[0] = "金花婆婆";
+			console.log(arr1);
+			console.log(arr2);
+		}
+
+		function testArray(){
+			//1、声明数组，初始化值为 "张无忌","赵敏"
+			var array = ["张无忌","赵敏"];
+			console.log("调用change前：");
+			console.log(array);
+			//2、调用 change 函数，并将 array 作为参数传递
+			change(array);
+			console.log("调用change后：");
+			console.log(array);
+
+		}
+		
+		/*改变数组中的元素*/
+		function change(arr){
+			//将 arr 中的第一个元素更改为"金花婆婆"
+			//arr[0]="金花婆婆";
+			arr = new Array("孙悟空","猪八戒");
+		}
+	</script>  
+	<button onclick="createArray()">创建数组并打印</button>
+	<button onclick="changeNum()">基本数据类型赋值</button>
+	<button onclick="changeArray()">引用数据类型赋值</button>
+	<button onclick="testArray()">testArray(引用类型做参数)</button>
+ </body>
+</html>

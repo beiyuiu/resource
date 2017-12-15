@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		/*var money = 2;
+		var cost = 1.6;
+		var change = money - cost;
+		change=change.toFixed(2);//将change保留两位小数再存放到change中
+		console.log(change);*/
+	</script>
+
+	<script>
+		/*关系运算符练习*/
+		/*var input = prompt("请输入一个数字:");
+		var r = input % 2;
+		var result = r == 1;
+		console.log(input+"是奇数吗?"+result);
+
+		result = r == 0;
+		console.log(input+"是偶数吗?"+result);
+		*/
+	</script>
+
+	<script>
+		/*逻辑运算符*/
+		/*var year = prompt("请输入一个年份：");
+		//1、条件1 ：判断是否能被4整除
+		var r1 = year % 4 == 0;
+		//2、条件2 ：判断是否不能被100整除
+		var r2 = year % 100 != 0;
+		//3、条件3 ：判断是否能被400整除
+		var r3 = year % 400 == 0;
+		//4、再使用 逻辑运算符将以上条件关联到一起
+		var result = r1 && r2 || r3;
+		console.log(year+"年是闰年吗?"+result);*/
+	</script>
+
+	<script>
+		/*逻辑运算符 2*/
+		/*
+			从弹框中输入一个字符
+			是一个英文字符吗? true / false
+			是一个数字吗? true / false
+			是一个汉字吗? true / false
+		*/
+		var input = prompt("请输入一个字符:");
+
+		/*判断是否为小写字符*/
+		// 判断 input 是否 在 a 以上
+		var gta = input >= "a";
+		// 判断 input 是否 在 z 以下
+		var ltz = input <= "z";
+		// 判断 gta 和 ltz 是否同时满足
+		var isSmall = gta && ltz;
+
+		/*判断是否为大写字符*/
+		var isCaps = input >= "A" && input <= "Z";
+		//判断是否为英文字符
+		var isENG = isSmall || isCaps;
+		console.log("是英文字符吗?"+isENG);
+
+		/*判断是否为数字*/
+		var isNUM = input >= 0 && input <= 9;
+		console.log("是数字吗?"+isNUM);
+
+		/*判断是否为中文*/
+		var isCHN = input >= "\u4e00" && input <= "\u9fa5";
+		console.log("是中文吗?"+isCHN);
+		
+	</script>
+ </body>
+</html>

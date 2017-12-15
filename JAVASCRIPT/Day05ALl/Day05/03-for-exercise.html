@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		/**
+		 * 打印 
+		  ******
+			******
+			******
+			******
+			******
+		 */
+		function print1(){
+			//控制 行的循环
+			for(var i=1;i<=5;i++){
+
+				var msg="";
+				//控制 每行中 * 的数量的循环
+				for(var j=1;j<=6;j++){
+					msg += "*";
+				}
+
+				console.log(msg);
+				
+			}
+		}
+		
+		/**
+		 * 
+		    *
+				**
+				***
+				****
+				*****
+		 */
+		function print2(){
+			//外层循环：控制行数，共5行
+			for(var i=1;i<=5;i++){
+				var msg = "";
+				//内层循环：控制**的数量，最多与 行数 一致
+				for(var j=1;j<=i;j++){
+					msg += "*";
+				}
+
+				console.log(msg);
+
+			}
+		}
+		
+		/**
+		      *     4个空格，1个星
+				 ***    3个空格，3个星
+				*****   2个空格，5个星
+			 *******  1个空格，7个星
+			********* 0个空格，9个星
+			外层循环：控制行数，共5行
+			内层循环：
+				1、控制 空格 的数量 ，从1开始，到 5-行数 为止
+				2、控制 ** 的数量，从1开始，到 2*行数-1 为止
+		 */
+		function print3(){
+			//外层循环 ：控制行
+			for(var i = 1 ; i <= 5 ; i ++){
+				var msg="";
+				//内层循环1  ：控制 空格
+				for(var j=1;j<=5-i;j++){
+					msg += " ";
+				}
+				//内层循环2  ：控制 **
+				for(var k=1;k<=2*i-1;k++){
+					msg += "*";
+				}
+				console.log(msg);
+			}
+		}
+	</script>  
+	<button onclick="print1()">打印**1</button>
+	<button onclick="print2()">打印**2</button>
+	<button onclick="print3()">打印**3</button>
+ </body>
+</html>

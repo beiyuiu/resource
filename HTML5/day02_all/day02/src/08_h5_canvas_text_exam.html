@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400" id="c2"></canvas>
+  <script>
+    //1:获取画笔对象
+    var c2 = document.getElementById("c2");
+    var ctx = c2.getContext("2d");
+    ctx.textBaseline="top";
+    //2:左上角画文本 tarena达内科技
+    var str = "tarena达内科技";
+    ctx.font="19px sans-serif";
+    //左上角->先画出文本->再获取宽度
+    ctx.fillText(str,0,0);
+    var obj = ctx.measureText(str);
+    var w = obj.width;
+    //右上角
+    ctx.fillText(str,500-w,0);
+
+
+  </script>
+</body>
+</html>

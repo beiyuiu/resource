@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+    if(!("forEach" in Array.prototype))
+      Array.prototype.forEach=function(callback){
+        var arr=this;
+        //this->将来调用forEach的.前的任意数组对象
+        for(var i=0;i<arr.length;i++){
+          if(arr[i]!==undefined)
+            callback(arr[i],i,arr);
+        }
+      }
+    if(!("map" in Array.prototype))
+      Array.prototype.map=function(callback){
+        var arr=this;
+        var result=[];
+        for(var i=0;i<arr.length;i++){
+          if(arr[i]!==undefined)
+            result[i]=callback(arr[i],i,arr);
+        }
+        return result;
+      }
+
+    var arr=[1,,3,,5];
+    //将原数组中每个数*2
+    arr.forEach(function(elem,i,arr){
+      arr[i]=elem*2;
+    });
+    //将原数组中每个值+1后放入新数组
+    var evens=arr.map(function(elem){
+      return elem+1;
+    });
+    document.write(arr+"<br>");
+    document.write(evens+"<br>");
+  </script>
+ </body>
+</html>

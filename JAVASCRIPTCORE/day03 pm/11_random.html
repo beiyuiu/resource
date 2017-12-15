@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #coin{ cursor:pointer; background:#aaa;
+      width:50px; height:50; font-size:2em;
+      text-align:center; line-height:50px;
+      border-radius:50%; border:2px double #555;
+    }
+    #chai{ cursor:pointer; background:red;
+      color:yellow;
+      width:50px; height:50; font-size:2em;
+      text-align:center; line-height:50px;
+      border-radius:50%; border:2px double yellow;
+    }
+  </style>
+ </head>
+ <body>
+  <button id="coin">1</button>
+  <button id="chai">拆</button>
+  <span id="result"></span>
+  <script>
+    chai.onclick=function(){
+      var r=Math.random();
+      result.innerHTML=r<0.01?"特等奖:macbook":
+                        r<0.05?"一等奖:ipad mini":
+                         r<0.1?"二等奖:小米手环":
+                          r<0.3?"三等奖:耳机":
+                               "参与奖:一卷卫生纸";
+    }
+    coin.onclick=function(){
+      coin.innerHTML=Math.random()<0.5?"1":"❀";
+    }
+    coin.onmousedown=function(){
+      coin.style.background="#fff";
+    }
+    coin.onmouseup=function(){
+      coin.style.background="#aaa";
+    }
+  </script>
+ </body>
+</html>

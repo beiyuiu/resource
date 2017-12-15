@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		/**
+		 * 获取指定数组中的最大值
+		 */
+		function hm1(){
+			//手动录入数据到数组中
+			var nums=[];
+			do{
+				//1、让用户录入数据(弹框)
+				var input = prompt("请输入一个数字(exit退出):");
+				//2、如果不是 exit 的话，则转换为整数并保存到 nums 中
+				if(input != "exit"){
+					nums[nums.length]=parseInt(input);
+				}
+			}while(input != "exit");//3、录入的数据不是 exit 的话，则继续
+			console.log(nums);
+
+
+
+
+
+			//1、声明一个整数数组
+			//var nums = [78,65,129,34,782,63,8];
+			//2、声明一个变量 max ，用于保存最大值，默认将数组中的第一个元素赋值给 max
+			var max = nums[0];
+			//3、从第二个元素起，依次与 max 进行比较，谁比max大，就把谁赋值给max
+			for(var i=1;i<nums.length;i++){
+				//比较 nums[i] 与 max 的大小，如果 nums[i] 比 max大，则将nums[i]赋值给 max
+				if(nums[i] > max){
+					max = nums[i];
+				}
+			}
+			//4、打印 max 的值
+			console.log("最大值为:"+max);
+		}
+		
+		/**查找指定元素在数组中的下标 , 多元素的话怎么办*/
+		function hm2(){
+			var nums = [78,65,129,34,782,78,63,8,78];
+			console.log(nums);
+			//1、声明一个变量 index，初始值为 -1,用于保存找到元素的 下标
+			var index = -1;
+			//2、从弹框中录入一个待查找的数据 input
+			var input = prompt("请输入一个数据:");
+			//3、循环遍历数组，取出每一个元素与input进行比较，如果相等的话，则将该元素的下标赋值给index
+			for(var i=0;i < nums.length ; i ++){
+				if(nums[i] == input){
+					index = i;
+					break;
+				}
+			}
+			//4、判断 index 的值是否为 -1，如果依然是-1，则提示未找到，否则打印index值
+			if(index == -1){
+				console.log("您要查找的数据不存在!");
+			}else{
+				console.log("您要查找的数据的下标为:"+index);
+			}
+		}
+
+		function hm3(){
+			var nums = [78,65,129,34,782,78,63,8,78];
+			console.log(nums);
+			//1、录入要查找的数据，并保存在 input 中
+			var input = prompt("请输入一个数据：");
+			//2、声明一个空数组 indexes ，用于保存出现的所有的下标
+			var indexes = [];
+			//3、循环遍历nums，查找input出现的下标，每出现一次，则将出现的下标保存在 indexes 的最新位置处
+			for(var i=0;i<nums.length;i++){
+				if(nums[i] == input){
+					indexes[indexes.length] = i;
+				}
+			}
+			//4、判断 indexes 的 length 属性是否为 0 ，并给出提示
+			if(indexes.length == 0){
+				console.log("不存在!");
+			}else{
+				console.log("出现的下标为:"+indexes);
+			}
+		}
+
+
+	</script>
+
+	<button onclick="hm1()">查找数组中的最大值</button>
+
+	<button onclick="hm2()">查找指定元素的索引</button>
+	
+	<button onclick="hm3()">查找指定元素的索引(多次)</button>
+ </body>
+</html>

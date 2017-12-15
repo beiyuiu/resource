@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+  <title></title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+
+  var ToDoInput = React.createClass({
+    handleClick: function () {
+        //调用ToDoBox中的addToLists的方法
+        this.props.funcAdd(this.refs.myInput.value);
+
+        //将输入框中内容清空
+        this.refs.myInput.value = "";
+    },
+    render: function () {
+      return <div>
+        <h1>待做事项列表</h1>
+        <input ref="myInput" type="text" placeholder="请输入"/>
+        <button onClick={this.handleClick}>
+            add
+        </button>
+      </div>
+    }
+  })
+  var ToDoList = React.createClass({
+    render: function () {
+      return <ul>
+          {
+            this.props.myList.map(
+              (value,index)=>{
+                  console.log(index,value);
+                  return <ToDoItem
+                    myDelete={this.props.funcDelete}
+                          myValue={value}
+                          myIndex={index}
+                          key={index}/>
+              })
+          }
+      </ul>
+    }
+  })
+  var ToDoItem = React.createClass({
+    handleDelete: function () {
+      //确认当前自己是第几个元素
+      console.log(this.props.myIndex);
+      //调用todobox传递给todolist，又传递给todoitem的删除的方法
+      this.props.myDelete(this.props.myIndex);
+    },
+    render: function () {
+      return <li>
+        <button
+        onClick={this.handleDelete} >delete</button>
+        <span>{this.props.myValue}</span>
+      </li>
+    }
+  })
+  var ToDoBox = React.createClass({
+    getInitialState: function () {
+        return {list:[]}
+    },
+    //定义一个方法，用来向状态对应的数组 插入内容
+    addToList: function (msg) {
+      var nowList = this.state.list;
+      nowList.push(msg);
+      this.setState(
+          {list:nowList},
+          function () {
+            console.log(this.state.list);
+          }
+      );
+    },
+    //定义一个方法，用来从状态的数组中删除指定位置的元素
+    deleteFromList:function(index){
+      var nowList = this.state.list;
+      nowList.splice(index,1);
+      this.setState(
+          {list:nowList},
+          function () {
+            console.log(this.state.list);
+          }
+      );
+    },
+    render: function () {
+      return <div>
+        <ToDoInput funcAdd={this.addToList}/>
+        <ToDoList
+          funcDelete={this.deleteFromList}
+          myList={this.state.list}/>
+      </div>
+    }
+  })
+
+
+  ReactDOM.render(
+      <ToDoBox/>,
+      document.getElementById('example')
+  )
+</script>
+
+</body>
+</html>

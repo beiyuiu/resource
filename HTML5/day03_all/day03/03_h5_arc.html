@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd;}
+  </style>
+</head>
+<body>
+  <h2>CANVAS绘图坐标轴--路径</h2>
+ <canvas id="c2" width="500" height="400">
+   您的浏览器版本太低不能显示canvas，请更新
+ </canvas>
+ <script>
+   //1:获取画布
+   //2:依据画布获取画笔
+   var ctx  = c2.getContext("2d");
+
+   //ctx.arc(圆心X,圆心y,半径,起始角度,结束角度);
+   //起始角度,结束角度
+   //生活(角度):0 90 180 270 360
+   //路径(弧度):0     PI     2PI
+   //示例:
+   //画圆: 0~360
+   //      0~2PI
+   //公式: 90(角度)*Math.PI/180=弧度
+   ctx.beginPath();
+   ctx.arc(250,200,25,0,2*Math.PI);//弧度
+   ctx.stroke();
+   ctx.beginPath();
+   ctx.arc(50,50,25,0*Math.PI/180,180*Math.PI/180);
+   //角度
+   ctx.stroke();
+   ctx.beginPath();
+   ctx.arc(450,350,25,-90*Math.PI/180,90*Math.PI/180);
+   ctx.stroke();
+ </script>
+</body>
+</html>
